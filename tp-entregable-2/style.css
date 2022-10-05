@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai+Looped&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
 
 body {
   background-color: #0CB594;
 }
 
 .search-bar{
-  width: 1037px;
+  width: 80%;
   height: 66px;
   background-color: #D9D9D9;
   border-radius: 50px;
@@ -30,6 +31,117 @@ body {
 header{
   display: flex;
   align-items: center;
-  /* justify-content: space-around; */
   margin: 30px 50px;
+}
+
+.hero-title{
+  background-color: #FFD01E;
+  color: #FFFFFF;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 20px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  padding: 0px 50px;
+  margin: 0 0 30px 0;
+}
+
+.img-hero {
+  display: flex;
+  justify-content: center;
+}
+
+.img-hero img {
+  width: 75%;
+}
+
+.categories{
+  background-color: #5C4BC9;
+  color: #FFFFFF;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 20px;
+  height: 49px;
+  display: flex;
+  align-items: center;
+  padding: 0px 50px;
+  margin-bottom: 30px;
+}
+
+.game-card{
+  width: 70%;
+  /* background-color: red; */
+  margin-right: 20px;
+}
+
+.game-card-big{
+  width: 100%;
+}
+.game-card-big img{
+  width: 100%;
+}
+
+.game-card img{
+  width: 100%;
+}
+
+.games-container{
+  margin-left: 50px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.carrousel{
+  display: flex;
+}
+
+footer{
+  /* height: 348px; */
+  background-color: #5C4BC9;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 100px 30px;
+  margin: 30px 0 0 0 ;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+footer ul li{
+  padding: 5px 0;
+  list-style: none;
+  color: #FFFFFF;
+  text-decoration: underline;
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  /* line-height: 0px; */
+}
+
+.footer-title{
+  padding-top: 30px;
+  text-decoration: none;
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 20px;
+}
+
+.comunity { 
+  display: flex;
+  justify-content: center;
+}
+
+.comunity li img{
+  padding: 15px;
+}
+
+.comunity li{
+  text-align: center;
 }
