@@ -3,6 +3,7 @@
 
 body {
   background-color: #0CB594;
+  margin: 50;
 }
 
 .search-bar{
@@ -145,3 +146,161 @@ footer ul li{
 .comunity li{
   text-align: center;
 }
+
+/* hero */
+
+.bodyHero{
+  background-color: #1E1E1E;
+  margin: 0px;
+}
+
+.headerHero{
+  background-color: #1E1E1E;
+  margin-bottom: 0px;
+}
+.titleHero-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleHero{
+  font-family: 'Lato';
+  font-style: normal;
+  Font-size: 128px;
+  Line-height: 153.6px;
+  Line-height: 100%;
+  color: #B4B4B4;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.subTitleHero{
+  font-family: 'Lato';
+  font-style: normal;
+  Font-size: 64px;
+  Line-height: 76.8px;
+  Line-height: 100%;
+  color: #B4B4B4;
+  margin-top: 0px;
+  margin-bottom: 47px;
+}
+
+.changeColorTitle{
+  color: #CC0000;
+}
+
+.available{
+  background-color: #CC0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82px;
+  left: 0px;
+  top: 369px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #F7F7F7;
+}
+
+.imageHero{
+  width: 100%;
+}
+
+.sectionHero{
+  background-color: #CC0000;
+  color: #F7F7F7;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.parrafoHero{
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.sectionCardsTeams{
+  width: 100%;
+  height: 470px;
+  left: 0px;
+  top: 1492px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.card, .card-renault{
+  margin-top: 30px;
+  height: 470px;
+  margin-right: 40px;
+  margin-left: 0px;
+}
+
+.card-renault{
+  margin-right: 0px;
+}
+
+.sectionHeroDescripción{
+  width: 100%;
+  height: 357px;
+  color: #F7F7F7;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.descripciónHero{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.title-features{
+  height: 82px;
+  width: 100%;
+  background-color: #CC0000;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.features{
+  width: 1452px;
+  height: 79px;
+  color: #F7F7F7;
+  margin-left: 170px;
+  margin-right: 160px;
+}
+
+.cards-features{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
