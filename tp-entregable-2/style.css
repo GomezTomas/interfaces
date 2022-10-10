@@ -268,6 +268,7 @@ footer ul li{
   display: flex;
   align-items: center;
   text-align: center;
+  margin-top: 5px;
 }
 
 .descripciónHero{
@@ -298,9 +299,28 @@ footer ul li{
 }
 
 .cards-features{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.card-features-item-left, .card-features-item-right{
+  width: 100%;
+}
+
+.card-features-item-left{
+  margin-left: 8px;
+}
+
+.card-features-item-right{
+  margin-right: 8px;
+}
+
+.hrHero{
+  width: 100%;
+  border: 1px solid #CC0000;
+  margin-bottom: 0px;
 }
 
