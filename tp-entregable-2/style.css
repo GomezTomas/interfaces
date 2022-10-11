@@ -448,6 +448,64 @@ iframe {
   margin-bottom :30px;
 }
 
+.card-features-item-left, .card-features-item-right{
+  height: 470px;
+  width: 294px;
+}
+
+.card-features-item-left{
+  margin-right: 101px;
+}
+
+.card-features-item-right{
+  margin-left: 101px;
+}
+
+.card-left > p{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800px;
+  font-size: 64px;
+  line-height: 77px;
+  color: #F7F7F7;
+}
+
+.card-right > p{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800px;
+  font-size: 64px;
+  line-height: 77px;
+  text-align: right;
+  color: #F7F7F7;
+}
+
+.card-left{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-left: 8px;
+  margin-top: 11px;
+  margin-bottom: 30px;
+}
+
+.card-right{
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content:flex-end;
+  margin-right: 8px;
+  margin-top: 11px;
+  margin-bottom: 30px;
+}
+
+.hrHero{
+  width: 100%;
+  border: 1px solid #CC0000;
+  margin-bottom: 0px;
+}
+
 @media screen and (min-width: 600px){
 
   .search-bar{
