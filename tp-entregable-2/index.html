@@ -5,120 +5,266 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juegos Online</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
-    <img src="assets/logos/icon.svg" alt="">
-    <div class="search-bar">
-      <p>Buscar</p>
-    </div>
-    <img src="assets/logos/burger_menu.svg" alt="">
+    <a href="index.html">
+      <img id="icon" src="assets/logos/icon.svg" alt="">
+    </a>
+      <input type="text" class="search-bar" placeholder="Buscar">
+    <img id="burger" src="assets/logos/burger_menu.svg" alt="">
   </header>
-  <h1 class="hero-title">Proximamente</h1>
+  <div class="hero-title">
+    <h1>Proximamente</h1>
+  </div>
   <div class="img-hero">
-    <img src="assets/img/hero_game.png" alt="">
+    <a href="hero.html"><img src="assets/img/hero_game.png" alt=""></a>
   </div>
   <h2 class="categories">Recomendados para ti</h2>
     <div class="games-container">
       <div class="for-you-col1">
-        <div class="game-card">
-          <img src="assets/img/lol.png" alt="">
-        </div>
-        <div class="game-card">
-          <img src="assets/img/friday_night_funkin.png" alt="">
+        <div class="slide-img">
+          <p>Lol</p>
+        <img src="assets/img/lol_card.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
         </div>
       </div>
+        <div class="slide-img">
+          <p>Friday Night Funkin</p>
+        <img src="assets/img/friday_night_funkin_card.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      </div>
       <div class="for-you-col2">
+          <p>Cuatro En linea - Superclasico</p>
         <div class="game-card-big">
           <img src="assets/img/cuatro_en_linea.png" alt="">
+        </div>
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button><a href="game.html">Jugar</a></button>
         </div>
       </div>
     </div>
   <h2 class="categories">Deportes</h2>
-  <div class="carrousel">
-    <div class="game-card">
-      <img src="assets/img/8_ball_pool.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/head_football.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/football_legends.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/club_manager.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/baseball_stadium.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/1_on_1_soccer.png" alt="">
+  <div class="slider">
+    <div class="slider-inner">
+      <div class="slide-img">
+        <p>8 ball pool</p>
+        <img src="assets/img/8_ball_pool.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+        <p>Head football</p>
+        <img src="assets/img/head_football.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Football legends</p>
+        <img src="assets/img/football_legends.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Club Manager</p>
+        <img src="assets/img/club_manager.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Baseball Stadium</p>
+        <img src="assets/img/baseball_stadium.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>1 on 1 soccer</p>
+        <img src="assets/img/1_on_1_soccer.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
     </div>
   </div>
   <h2 class="categories">Juegos de mesa</h2>
-  <div class="carrousel">
-    <div class="game-card">
-      <img src="assets/img/cuatro_en_linea_small.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/chess_multiplayer.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/card_solitaire.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/damas.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/governor_of_poker.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/chess_war.png" alt="">
+
+  <div class="slider">
+    <div class="slider-inner">
+      <div class="slide-img">
+          <p>Cuatro en linea</p>
+        <img src="assets/img/cuatro_en_linea_small.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Chess multiplayer</p>
+        <img src="assets/img/chess_multiplayer.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Card solitarie</p>
+        <img src="assets/img/card_solitaire.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Damas</p>
+        <img src="assets/img/damas.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Governor of poker</p>
+        <img src="assets/img/governor_of_poker.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Chess war</p>
+        <img src="assets/img/chess_war.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
     </div>
   </div>
   <h2 class="categories">Accion</h2>
-  <div class="carrousel">
-    <div class="game-card">
-      <img src="assets/img/stickman.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/lol.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/metal_slug.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/the_last_stand.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/raze.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/intrussion.png" alt="">
+  <div class="slider">
+    <div class="slider-inner">
+      <div class="slide-img">
+          <p>Stickman</p>
+        <img src="assets/img/stickman.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Lol</p>
+        <img src="assets/img/lol_card.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Metal Slug</p>
+        <img src="assets/img/metal_slug.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>The last stand</p>
+        <img src="assets/img/the_last_stand.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Raze</p>
+        <img src="assets/img/raze.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
+      <div class="slide-img">
+          <p>Intrussion</p>
+        <img src="assets/img/intrussion.png" alt="">
+        <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+      </div>
     </div>
   </div>
   <h2 class="categories">Habilidad</h2>
-  <div class="carrousel">
-    <div class="game-card">
-      <img src="assets/img/subway_surfer.png" alt="">
+    <div class="slider">
+      <div class="slider-inner">
+        <div class="slide-img">
+          <p>Subway Surfer</p>
+          <img src="assets/img/subway_surfer.png" alt="">
+          <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+        </div>
+        <div class="slide-img">
+          <p>Friday Night Funkin</p>
+          <img src="assets/img/friday_night_funkin_card.png" alt="">
+          <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+        </div>
+        <div class="slide-img">
+          <p>Geometry Dash</p>
+          <img src="assets/img/geometry_dash.png" alt="">
+          <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+        </div>
+        <div class="slide-img">
+          <p>Candy Crush</p>
+          <img src="assets/img/candy_crush.png" alt="">
+          <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+        </div>
+        <div class="slide-img">
+          <p>Stickman boost</p>
+          <img src="assets/img/stickman_boost.png" alt="">
+          <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+        </div>
+        <div class="slide-img">
+          <p>Stickmania</p>
+          <img src="assets/img/stickmania.png" alt="">
+          <div class="name-card">
+          <p>Gratis!</p>
+          <button>Jugar</button>
+        </div>
+        </div>
+      </div>
     </div>
-    <div class="game-card">
-      <img src="assets/img/friday_night_funkin.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/geometry_dash.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/candy_crush.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/stickman_boost.png" alt="">
-    </div>
-    <div class="game-card">
-      <img src="assets/img/stickmania.png" alt="">
-    </div>
-  </div>
   <footer>
     <div>
       <ul>
@@ -158,5 +304,6 @@
     </div>
   </footer>
 
+  <script src="js/slider.js"></script>
 </body>
 </html>
