@@ -6,27 +6,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juegos Online</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <header>
     <a href="index.html">
-      <img id="icon" src="assets/logos/icon.svg" alt="">
+      <img src="assets/logos/icon.svg" alt="">
     </a>
-      <input type="text" class="search-bar" placeholder="Buscar">
-    <img id="burger" src="assets/logos/burger_menu.svg" alt="">
+    <div class="search-bar">
+      <p>Buscar</p>
+    </div>
+    <div class="hamburguer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="menuHamburguer">
+      <div class="userSection">
+        <img src="assets/img/Avatar.png" alt="Avatar">
+        <div>
+          <p>User name</p>
+          <p>Nivel: 0</p>
+        </div>
+      </div>
+    <div class="buttonsMenuSection">
+      <button>Mi perfil</button>
+      <button>Mis juegos</button>
+      <button>Mi carrito</button>
+      <button>Contactanos</button>
+      <button>Cerrar sesion</button>
+    </div>
+    <hr>
+    <div class="shareAccount">
+      <p>Comparte tu perfil con tus amigos!!</p>
+      <div>
+        <a href="https://discord.com/">
+          <img src="assets/img/Discord logo.png" alt="Discord">
+        </a>
+        <a href="https://www.facebook.com/">
+          <img src="assets/img/Facebook logo.png" alt="Facebook">
+        </a>
+        <a href="https://twitter.com/?lang=es">
+          <img src="assets/img/Twitter logo.png" alt="Twitter">
+        </a>
+      </div>
+    </div>
+  </div>
   </header>
-  <div class="hero-title">
-    <h1>Cuatro en linea - Superclasico</h1>
-  </div>
-  <div class="img-hero">
-    <a href="hero.html"><img src="assets/img/cuatro_en_linea_game.png" alt=""></a>
-  </div>
-  <div class="container">
-    <p>Bienvenidos a una nueva edicion del superclasico argentino! En esta edicion, Boca y River se enfrentan para ver quien es el primer finalista de la Copa Argentina 2022. Elegi tu equipo favorito y llevalo a la final, ganando este maravilloso cuatro en linea!</p>
-    <img src="assets/img/superclasico.png" alt="">
-    <iframe src="https://www.youtube.com/embed/oUlKlNpVAuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-
-  <script src="js/slider.js"></script>
+  <main>
+    <section class="hero-title">
+      <h1>Cuatro en linea - Superclasico</h1>
+    </section>
+    <section class="img-hero">
+      <img src="assets/img/cuatro_en_linea_game.png" alt="Juego cuatro en linea">
+    </section>
+    <section class="container">
+      <p>Bienvenidos a una nueva edicion del superclasico argentino! En esta edicion, Boca y River se enfrentan para ver quien es el primer finalista de la Copa Argentina 2022. Elegi tu equipo favorito y llevalo a la final, ganando este maravilloso cuatro en linea!</p>
+      <img src="assets/img/superclasico.png" alt="">
+      <iframe src="https://www.youtube.com/embed/oUlKlNpVAuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <div class="containerText">
+        <p class="sobreCopaArgentina">Todo sobre la copa argentina!</p>
+      </div>
+      <section class="instrucciones">
+        <h3>Instrucciones</h3>
+        <ul>
+          <li> <p>Primero se debera elegir quien sera el jugador uno y quien el jugador dos.</p></li>
+          <li> <p>El juego se juega solo con el mouse, el cual se iran compartiendo dependiendo de a quien le toque jugar</p></li>
+          <li> <p>El ganador del juego sera aquel que consiga tener cuatro fichas de su equipo en linea, ya sea de forma vertical, horizonal o en diagonal</p></li>
+        </ul>
+        <p>
+          A divertirse!
+        </p>
+      </section>
+    </section>
+    <section>
+      <h3 class="titleForo">Dejanos tu mensaje!</h3>
+      <input class="coment" type="text">
+      <button class="buttonComent">Comante</button>
+      <div class="boxComent"></div>
+    </section>
+    <section class="shareGame">
+      <h3>Comparti el juego con amigos en tus redes sociales!</h3>
+      <div class="cardShareFila-1">
+        <div class = "cardShareLeft"><img src="assets/img/Facebook logo blanco.png" alt="Facebook"><h3>Facebook</h3></div>
+        <div class = "cardShare"><img src="assets/img/🦆 icon _copy_.png" alt="Copy"><h2>Copy link</h2></div>
+      </div>
+      <div class="cardShareFila-2">
+        <div class = "cardShareLeft"><img src="assets/img/Twitter logo blanco.png" alt="Twitter"><h2>Twitter</h2></div>
+        <div class = "cardShare"><img src="assets/img/Discord logo blanco.png" alt="Discord"><h2>Discord</h2></div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div>
+      <ul>
+        <li class="footer-title">Nuestros Juegos</li>
+        <li>Deportes</li>
+        <li>Juegos de mesa</li>
+        <li>Accion</li>
+        <li>Habilidad</li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li class="footer-title">Perfil</li>
+        <li>Mi perfil</li>
+        <li>Mis juegos</li>
+        <li>Mi carrito</li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li class="footer-title">Sobre Nosotros</li>
+        <li>Contacto</li>
+        <li>Trabaja para nosotros</li>
+        <li>Bases y condiciones</li>
+        <li>Copyright</li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li class="footer-title">Comunidad</li>
+        <div class="comunity">
+          <li><img src="assets/logos/twitter_logo.svg" alt=""></li>
+          <li><img src="assets/logos/discord_logo.svg" alt=""></li>
+          <li><img src="assets/logos/facebook_logo.png" alt=""></li>
+        </div>
+      </ul>
+    </div>
+  </footer>
+  <script src="js/hero.js"></script>
 </body>
 </html>

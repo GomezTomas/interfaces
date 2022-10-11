@@ -13,6 +13,9 @@ body {
 }
 
 .search-bar{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
   width: 80%;
   height: 7vw;
   max-height: 66px;
@@ -31,6 +34,10 @@ body {
 }
 .search-bar:focus{
   outline: none;
+}
+
+.search-bar > p{
+  color: #402CBF;
 }
 
 header{
@@ -416,7 +423,16 @@ footer ul li{
 
 .sectionHero{
   width: 100%;
+  height: 386px;
   background-color: #CC0000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.parrafoHero{
+  margin-left: 6px;
+  margin-right: 6px;
   color: #F7F7F7;
   font-family: 'Lato';
   font-style: normal;
@@ -426,11 +442,6 @@ footer ul li{
   display: flex;
   align-items: center;
   text-align: center;
-}
-
-.parrafoHero{
-  margin-left: 6px;
-  margin-right: 6px;
 }
 
 .sectionCardsTeams{
@@ -455,7 +466,17 @@ footer ul li{
   margin-right: 0px;
 }
 
-.sectionHeroDescripción{
+.sectionHeroDescripcion{
+  width: 100%;
+  height: 357px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.descripcionHero{
+  margin-left: 50px;
+  margin-right: 50px;
   color: #F7F7F7;
   font-family: 'Lato';
   font-style: normal;
@@ -465,26 +486,15 @@ footer ul li{
   display: flex;
   align-items: center;
   text-align: center;
-}
-
-.descripciónHero{
-  margin-left: 50px;
-  margin-right: 50px;
 }
 
 .title-features{
   height: 5.125rem;
   width: 100%;
   background-color: #CC0000;
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 800px;
-  font-size: 64px;
-  line-height: 77px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  text-align: center;
-  color: #F7F7F7;
 }
 
 .features{
@@ -493,6 +503,15 @@ footer ul li{
   color: #F7F7F7;
   margin-left: 170px;
   margin-right: 160px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800px;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #F7F7F7;
 }
 
 .cards-features{
@@ -578,7 +597,6 @@ footer ul li{
   top: 0;
   left: 0;
   height: 100%;
-  /* width: 200%; */
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   
@@ -627,8 +645,7 @@ p{
 
 .name-card button{
   font-family: 'Kumbh Sans', sans-serif;
-  background-color: #7421BB;
-  border: none;
+  background-color: #402CBF;
   border-radius: 20px;
   padding: 10px 20px;
   font-size: 20px;
@@ -636,31 +653,20 @@ p{
   font-weight: 700;
   pointer-events: all;
 
-
+  border-color: #402CBF;
+  color: #fff;
+  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 500ms ease-in-out;
+  transition: background 500ms ease-in-out;
 }
 
-.hover{
-  position: relative;
-  /* bottom: 180px; */
-  top: 161px;
-  height: 161px;
-  background-color: black;
-  opacity: 30%;
-  border-radius: 70px 70px 0 0;
-  display: none;
-  /* visibility: hidden; */
-  pointer-events: all;
-
+.name-card button:hover {
+  background-position: 0;
 }
 
-
-button{
-  transition: background-color 200ms;
-}
-
-button:hover{
-  background-color: #5C4BC9;
-}
 
 iframe {
   width: 80%;
@@ -682,6 +688,164 @@ iframe {
   margin-bottom :30px;
 }
 
+.sobreCopaArgentina{
+  font-family: 'Kumbh Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 0px;
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+  color: #FFFFFF;
+  margin-left: 0px;
+}
+
+.container > .containerText{
+  width: 100%;
+  margin-left: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container > .instrucciones{
+  width: 100%;
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.container > .instrucciones > h3{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+.container > .instrucciones > ul > li > p{
+  font-family: 'IBM Plex Sans Thai Looped';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 53px;
+  color: #FFFFFF;
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+  margin-left: 25px;
+}
+
+.container > .instrucciones > ul{
+  color: #F7F7F7;
+  margin-left: 50px;
+}
+
+.container > .instrucciones > p{
+  font-family: 'IBM Plex Sans Thai Looped';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 53px;
+  color: #FFFFFF;
+}
+
+.titleForo{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  margin-left: 50px;
+}
+
+.coment{
+  width: 50%;
+  height: 137px;
+  background: #F7F7F7;
+  border-radius: 10px 0px 0px 10px;
+  margin-left: 50px;
+}
+
+.buttonComent{
+  width: 231px;
+  height: 137px;
+  color: #F7F7F7;
+  background: #8070D7;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.boxComent{
+  width: 1321px;
+  height: 509px;
+  overflow-y: scroll;
+  background: #FFFFFF;
+  border-radius: 40px;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.shareGame{
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  color: #FFFFFF;
+  margin-left: 50px;
+  margin-top: 30px;
+}
+
+.cardShareFila-1, .cardShareFila-2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardShareFila-1{
+  margin-top: 32px;
+}
+
+.cardShareFila-2{
+  margin-top: 69px;
+}
+
+.cardShare, .cardShareLeft{
+  height: 206px;
+  width: 532px;
+  border-radius: 25px;
+  background-color: #8070D7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cardShare > h3, .cardShareLeft > h3{
+  height: 77px;
+  width: 266px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.cardShareLeft{
+  margin-right: 49px;
+}
 
 @media screen and (min-width: 600px){
 
