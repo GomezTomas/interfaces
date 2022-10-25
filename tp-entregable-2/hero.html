@@ -4,21 +4,23 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero</title>
   <link rel="stylesheet" href="style.css">
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-  <title>Juegos Online</title>
 </head>
 <body class="bodyHero">
-  <header>
-    <img src="assets/logos/icon.svg" alt="">
+  <header class="headerHero">
+    <img src="assets/logos/icon.svg" alt="Logo pagina web">
     <div class="search-bar">
       <p>Buscar</p>
     </div>
-    <div class="hamburguer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+      <div class="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  </header>
+  <nav>
     <div class="menuHamburguer">
       <div class="userSection">
         <img src="assets/img/Avatar.png" alt="Avatar">
@@ -27,88 +29,91 @@
           <p>Nivel: 0</p>
         </div>
       </div>
-    <div class="buttonsMenuSection">
-      <button>Mi perfil</button>
-      <button>Mis juegos</button>
-      <button>Mi carrito</button>
-      <button>Contactanos</button>
-      <button>Cerrar sesion</button>
-    </div>
-    <hr>
-    <div class="shareAccount">
-      <p>Comparte tu perfil con tus amigos!!</p>
-      <div>
-        <img src="assets/img/Discord logo.png" alt="Discord">
-        <img src="assets/img/Facebook logo.png" alt="Facebook">
-        <img src="assets/img/Twitter logo.png" alt="Twitter">
+      <div class="buttonsMenuSection">
+        <button>Mi perfil</button>
+        <button>Mis juegos</button>
+        <button>Mi carrito</button>
+        <button>Contactanos</button>
+        <button>Cerrar sesion</button>
       </div>
-    </div>
+      <hr class="hrMenu">
+      <div class="shareAccount">
+        <p>Comparte tu perfil con tus amigos!!</p>
+        <div>
+          <img src="assets/img/Discord logo.png" alt="Discord">
+          <img src="assets/img/Facebook logo.png" alt="Facebook">
+          <img src="assets/img/Twitter logo.png" alt="Twitter">
+        </div>
+      </div>
   </div>
-  </header>
+  </nav>
   <main>
     <div class="titleHero-container">
-      <h1 class="titleHero">Formula <span class="changeColorTitle">1</span>
+      <h1 class="titleHero">Formula<span class="changeColorTitle">1</span>
         <h2 class="subTitleHero">Ayrton <span class="changeColorTitle">senna</span></h2>
       </h1>
     </div>
     <div class="available">Disponible el 18/04/2023</div>
-      <img class="imageHero" src="assets/img/Imagen hero.png" alt="Ayrton senna">
+    <img class="imageHero" src="assets/img/Imagen hero.png" alt="Ayrton senna">
     <section class="sectionHero">
       <p class="parrafoHero"> Corre contra los mejores pilotos en la competicion mas competitiva y exclusiva del mundo. En una edicion especial en memoria del gran Ayrton Senna.</p>
     </section>
-      <section class="sectionCardsTeams">
-        <div class="card">
-          <img src="assets/img/Card team ferrari.png" alt="Card Ferrari">
-        </div>
-        <div class="card">
-          <img src="assets/img/Card team alpine.png" alt="Card Ferrari">
-        </div>
-        <div class="card">
-          <img src="assets/img/Card team mclaren.png" alt="Card Ferrari">
-        </div>
-        <div class="card">
-          <img src="assets/img/Card team mercedes benz.png" alt="Card Ferrari">
-        </div>
-        <div class="card">
-          <img src="assets/img/Card team aston martin.png" alt="Card Ferrari">
-        </div>
-        <div class="card">
-          <img src="assets/img/Card team red bull.png" alt="Card Ferrari">
-        </div>
-        <div class="card-renault">
-          <img src="assets/img/Card team renault.png" alt="Card Ferrari">
-        </div>
-      </section>
-      <section class="sectionHeroDescripcion">
-        <p class="descripcionHero">Podras encarnar a Ayrton Senna desde sus comienzos hasta el final de su carrera. Compite contra sus maximos rivales, como Alain Prost e incluso al mismisimo Michael Schumacher, y supera el legado que dejó. </p>
-      </section>
-      <div class="title-features">
-        <p class="features">En este juego tendras la posibilidad de:</p>
+      <section class="carrusel">
+        <div class="slider">
+          <div class="slider-inner">
+            <div class="slide-img">
+              <img src="assets/img/Card team ferrari.png" alt="">
+            </div>
+          <div class="slide-img">
+            <img src="assets/img/Card team alpine.png" alt="">
+          </div>
+          <div class="slide-img">
+            <img src="assets/img/Card team mclaren.png" alt="">
+          </div>
+          <div class="slide-img">
+            <img src="assets/img/Card team mercedes benz.png" alt="">
+          </div>
+          <div class="slide-img">
+            <img src="assets/img/Card team aston martin.png" alt="">
+          </div>
+          <div class="slide-img">
+            <img src="assets/img/Card team red bull.png" alt="">
+          </div>
+          <div class="slide-img">
+            <img src="assets/img/Card team renault.png" alt="">
+          </div>
+        </div> 
       </div>
-      <section class="cards-features">
-        <div class="card-left">
-          <img class="card-features-item-left" src="assets/img/Card un jugador.png" alt="Un jugador">
-          <p>Podras crear tu propia carrera y legado o elegir a tu idolo, para correr con los mejores pilotos del mundo.</p>
-        </div>
-      <hr class="hrHero">
-      <div class="card-right">
-        <p>Podras jugar con amigos de manera local y ver quien es el mejor piloto de la Formula 1.</p>
-        <img class="card-features-item-right" src="assets/img/Card multijugador.png" alt="Multijugador">
-      </div>
-      <hr class="hrHero">
+    </section>
+    <section class="sectionHeroDescripcion">
+      <p class="descripcionHero">Podras encarnar a Ayrton Senna desde sus comienzos hasta el final de su carrera. Compite contra sus maximos rivales, como Alain Prost e incluso al mismisimo Michael Schumacher, y supera el legado que dejó. </p>
+    </section>
+    <div class="title-features">
+      <p class="features">En este juego tendras la posibilidad de:</p>
+    </div>
+    <section class="cards-features">
       <div class="card-left">
-        <img class="card-features-item-left" src="assets/img/Card Online.png" alt="Online">
-        <p>Tendras la oportunidad de correr contra personas de todo el mundo, por lo que vas a poder medir a nivel mundial tus habilidades como piloto.</p>
+        <img class="card-features-item-left" src="assets/img/Card un jugador.png" alt="Un jugador">
+        <p>Podras crear tu propia carrera y legado o elegir a tu idolo, para correr con los mejores pilotos del mundo.</p>
       </div>
-      <hr class="hrHero">
-      <div class="card-right">
-        <p>Vas a poder disfrutar las fisicas del
-          gran motor grafico Unreal Engine.
-          Podras vivir las experiencias mas realista que un juego de carreras te puede dar</p>
-        <img class="card-features-item-right" src="assets/img/Card motor grafico.png" alt="Unreal Engine">
-      </div>
-      </section>
-    </main>
+    <hr class="hrHero">
+    <div class="card-right">
+      <p>Podras jugar con amigos de manera local y ver quien es el mejor piloto de la Formula 1.</p>
+      <img class="card-features-item-right" src="assets/img/Card multijugador.png" alt="Multijugador">
+    </div>
+    <hr class="hrHero">
+    <div class="card-left">
+      <img class="card-features-item-left" src="assets/img/Card Online.png" alt="Online">
+      <p>Tendras la oportunidad de correr contra personas de todo el mundo, por lo que vas a poder medir a nivel mundial tus habilidades como piloto.</p>
+    </div>
+    <hr class="hrHero">
+    <div class="card-right">
+      <p>Vas a poder disfrutar las fisicas del
+        gran motor grafico Unreal Engine.
+        Podras vivir las experiencias mas realista que un juego de carreras te puede dar.</p>
+      <img class="card-features-item-right" src="assets/img/Card motor grafico.png" alt="Unreal Engine">
+    </div>
+    </section>
     <footer>
       <div>
         <ul>
@@ -147,6 +152,7 @@
         </ul>
       </div>
     </footer>
-    <script src="hero.js"></script>
+  </main>
+  <script src="hero.js"></script>
 </body>
 </html>
