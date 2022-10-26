@@ -9,7 +9,8 @@
 body {
   background-color: #0CB594;
   width: 100%;
-  margin: 50;
+  margin: 0px;
+  height: 100%;
 }
 
 .search-bar{
@@ -43,7 +44,8 @@ body {
 header{
   display: flex;
   align-items: center;
-  margin: 30px 50px;
+  justify-content: center;
+  width: 100%;
 }
 
 header #icon{
@@ -180,151 +182,21 @@ footer ul li{
 /* hero */
 
 .bodyHero{
-  background-color: #1E1E1E;
-  margin: 0px;
-  width: 100%;
-  overflow-x: hidden;
+  background-color: #1e1e1e;
 }
 
 .headerHero{
-  background-color: #1E1E1E;
   margin-bottom: 0px;
   width: 100%;
 }
 
-.menuHamburguer{
-  opacity: 0;
-  width: 0rem;
-  position:absolute;
-  top: 0px;
-  right: 0px;
-  height: 857px;
-}
-
-.menuHamburguer{
-  transition: all .2s ease-in;
-}
-
-.userSection, .buttonsMenuSection, .shareAccount{
-  display: none;
-}
-
-
-.menuHamburguer.open{
-  opacity: 1;
-  position:absolute;
-  top: 0px;
-  right: 0px;
-  z-index: 1;
-  width: 45rem;
-  height: 857px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #0CB594;
-}
-
-.userSection.open{
-  opacity: 1;
-  width: 45rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 194px;
-  margin-bottom: 28px;
-  margin-left: 21px;
-  font-family: 'IBM Plex Sans Thai Looped';
-  font-style: normal;
-  font-weight: 4200px;
-  font-size: 29.7931px;
-  line-height: 49px;
-  color: #FFFFFF;
-}
-
-.buttonsMenuSection.open{
-  opacity: 1;
-  width: 45rem;
-  height: 411px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.buttonsMenuSection.open > button{
-  background-color: #402CBF;
-  border-color: #402CBF;
-  color: #fff;
-  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
-  background-position: 100%;
-  background-size: 400%;
-  transition: background 450ms ease-in-out;
-  transition: background 450ms ease-in-out;
-  width: 200px;
-  height: 60px;
-  border-radius: 75px;
-  margin-bottom: 34px;
-}
-
-.buttonsMenuSection.open > button:hover{
-  background-position: 0;
-}
-
-.menuHamburguer.open > hr{
-  height: 0px;
-  width: 100%;
-  border: 1px solid #000000;
-  margin-bottom: 13px;
-}
-
-.shareAccount.open{
-  opacity: 1;
-  margin-top: 0px;
-  width: 720px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.shareAccount.open > p{
-  margin-top: 0px;
-  margin-bottom: 44px;
-  font-family: 'IBM Plex Sans Thai Looped';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 53px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #FFFFFF;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.shareAccount.open > div{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 122px;
-}
-
 .hamburguer{
-  position: absolute;
-  right: 62px;
   z-index: 2;
   height: 56px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0px;
 }
-
 
 .hamburguer > span{
   width: 74.67px;
@@ -354,12 +226,134 @@ footer ul li{
   transition-delay: .2s;
 }
 
+
 .hamburguer.hamburguer.active > span:nth-child(1){
   transform: translateY(21px);
 }
 
 .hamburguer.hamburguer.active > span:nth-child(3){
   transform: translateY(-21px) rotate(90deg);
+}
+
+.menuHamburguer{
+  position: fixed;
+  top: 0px;
+  right: -500px;
+  width: 45rem;
+  height: 857px;
+  z-index: 1;
+  background-color: #0CB594;
+  opacity: 0;
+  transition: all 0.75s ease;
+}
+
+.menuHamburguer.open{
+  opacity: 1;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+  width: 45rem;
+  height: 857px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0CB594;
+}
+
+.userSection{
+  opacity: 1;
+  width: 45rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 194px;
+  margin-bottom: 28px;
+  font-family: 'IBM Plex Sans Thai Looped';
+  font-style: normal;
+  font-weight: 4200px;
+  font-size: 29.7931px;
+  line-height: 49px;
+  color: #FFFFFF;
+}
+
+.userSection > img {
+  margin-left: 21px;
+}
+
+.buttonsMenuSection{
+  opacity: 1;
+  width: 45rem;
+  height: 411px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.buttonsMenuSection > button{
+  background-color: #402CBF;
+  border-color: #402CBF;
+  color: #fff;
+  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
+  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 450ms ease-in-out;
+  transition: background 450ms ease-in-out;
+  width: 200px;
+  height: 60px;
+  border-radius: 75px;
+  margin-bottom: 34px;
+}
+
+.buttonsMenuSection > button:hover{
+  background-position: 0;
+}
+
+.menuHamburguer > hr{
+  width: 100%;
+  border-right-width: 0px;
+  border-left-width: 0px;
+  margin-bottom: 13px;
+  border-top: 1px solid #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.shareAccount{
+  opacity: 1;
+  margin-top: 0px;
+  width: 720px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shareAccount > p{
+  margin-top: 0px;
+  margin-bottom: 44px;
+  font-family: 'IBM Plex Sans Thai Looped';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 53px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  color: #FFFFFF;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.shareAccount > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
 }
 
 .titleHero-container{
@@ -398,8 +392,6 @@ footer ul li{
 
 .available{
   width: 100%;
-  height: 100%;
-  background-color: #CC0000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -436,39 +428,55 @@ footer ul li{
   color: #F7F7F7;
   font-family: 'Lato';
   font-style: normal;
-  font-weight: 800px;
+  font-weight: 800;
   font-size: 4rem;
   line-height: 77px;
   display: flex;
   align-items: center;
   text-align: center;
+  word-wrap: break-word;
 }
 
-.sectionCardsTeams{
+.carrusel{
+  position: relative;
+  height: 500px;
+}
+
+.slider{
+  position: absolute;
+  top: 0;
   width: 100%;
-  height: 470px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  height: 500px;
+  overflow: hidden;
 }
 
-.card, .card-renault{
-  margin-top: 30px;
-  height: 470px;
-  margin-right: 40px;
-  margin-left: 0px;
+.slider-inner{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 120%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  pointer-events: none;
+  transition: 0s ease-in;
 }
 
-.card-renault{
-  margin-right: 0px;
+.slide-img{
+  height: 100%;
+  background-color: black;
+  text-align: center;
+  padding-top: 15px;
+  padding-right: 10px;
+  padding-bottom: 15px;
 }
 
 .sectionHeroDescripcion{
-  width: 100%;
-  height: 357px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 64px;
+  line-height: 77px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -477,41 +485,29 @@ footer ul li{
 .descripcionHero{
   margin-left: 50px;
   margin-right: 50px;
-  color: #F7F7F7;
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 800px;
-  font-size: 64px;
-  line-height: 77px;
+}
+
+.title-features{
+  height: auto;
+  word-wrap: break-word;
+  width: 100%;
+  background-color: #CC0000;
   display: flex;
   align-items: center;
   text-align: center;
 }
 
-.title-features{
-  height: 5.125rem;
-  width: 100%;
-  background-color: #CC0000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .features{
   width: 90.5rem;
-  height: 79px;
+  height: 100%;
   color: #F7F7F7;
   margin-left: 170px;
   margin-right: 160px;
   font-family: 'Lato';
   font-style: normal;
-  font-weight: 800px;
+  font-weight: 800;
   font-size: 64px;
   line-height: 77px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #F7F7F7;
 }
 
 .cards-features{
@@ -521,351 +517,59 @@ footer ul li{
   align-items: center;
 }
 
-.card-features-item-left, .card-features-item-right{
-  height: 470px;
-  width: 294px;
+.card-left, .card-right{
+  width: 98%;
 }
 
-.card-features-item-left{
-  margin-right: 101px;
+.card-left{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 11px;
+  margin-bottom: 30px;
 }
 
-.card-features-item-right{
-  margin-left: 101px;
+.card-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 11px;
+  margin-bottom: 30px;
 }
 
 .card-left > p{
   font-family: 'Lato';
   font-style: normal;
-  font-weight: 800px;
+  font-weight: 800;
   font-size: 64px;
   line-height: 77px;
   color: #F7F7F7;
 }
 
+.card-left > img{
+  margin-right: 80px;
+}
+
 .card-right > p{
   font-family: 'Lato';
   font-style: normal;
-  font-weight: 800px;
+  font-weight: 800;
   font-size: 64px;
   line-height: 77px;
   text-align: right;
   color: #F7F7F7;
 }
 
-.card-left{
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-left: 8px;
-  margin-top: 11px;
-  margin-bottom: 30px;
-}
-
-.card-right{
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content:flex-end;
-  margin-right: 8px;
-  margin-top: 11px;
-  margin-bottom: 30px;
+.card-right > img{
+  margin-left: 80px;
 }
 
 .hrHero{
   width: 100%;
-  border: 1px solid #CC0000;
+  height: 1px;
   margin-bottom: 0px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.slider{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.slider-inner{
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  
-  pointer-events: none;
-}
-
-.slide-img{
-  height: 290px;
-  margin: 20px 10px 0px 0px;
-  text-align: center; 
-}
-
-p{
-  font-size: 24px;
-  font-family: 'Kumbh Sans', sans-serif;
-  font-weight: 700;
-  color: white;
-  margin-top: 0px;
-}
-
-.slide-img > p{
-  font-size: 24px;
-  font-family: 'Kumbh Sans', sans-serif;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 20px; 
-}
-
-.name-card{
-  position: relative;
-  bottom: 75px;
-  height: 75px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border-radius: 0 0 70px 70px;
-  background-color: #8070D7;
-  font-family: 'Kumbh Sans', sans-serif;
-  font-size: 24px;
-  color: white;
-  font-weight: 700;
-  pointer-events: all;
-
-}
-
-.name-card button{
-  font-family: 'Kumbh Sans', sans-serif;
-  background-color: #402CBF;
-  border-radius: 20px;
-  padding: 10px 20px;
-  font-size: 20px;
-  color: white;
-  font-weight: 700;
-  pointer-events: all;
-
-  border-color: #402CBF;
-  color: #fff;
-  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
-  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
-  background-position: 100%;
-  background-size: 400%;
-  transition: background 500ms ease-in-out;
-  transition: background 500ms ease-in-out;
-}
-
-.name-card button:hover {
-  background-position: 0;
-}
-
-
-iframe {
-  width: 80%;
-  height: 60vh;
-}
-
-.container{
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  margin: 0 50px; 
-}
-
-.container p {
-  margin: 30px;
-}
-
-.container img{
-  margin-bottom :30px;
-}
-
-.sobreCopaArgentina{
-  font-family: 'Kumbh Sans';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 0px;
-  display: flex;
-  align-items: center;
-  text-decoration-line: underline;
-  color: #FFFFFF;
-  margin-left: 0px;
-}
-
-.container > .containerText{
-  width: 100%;
-  margin-left: 50px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.container > .instrucciones{
-  width: 100%;
-  margin-left: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.container > .instrucciones > h3{
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 64px;
-  line-height: 77px;
-  display: flex;
-  align-items: center;
-  color: #FFFFFF;
-}
-
-.container > .instrucciones > ul > li > p{
-  font-family: 'IBM Plex Sans Thai Looped';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 53px;
-  color: #FFFFFF;
-  flex: none;
-  order: 1;
-  flex-grow: 1;
-  margin-left: 25px;
-}
-
-.container > .instrucciones > ul{
-  color: #F7F7F7;
-  margin-left: 50px;
-}
-
-.container > .instrucciones > p{
-  font-family: 'IBM Plex Sans Thai Looped';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 53px;
-  color: #FFFFFF;
-}
-
-.titleForo{
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 64px;
-  line-height: 77px;
-  display: flex;
-  align-items: center;
-  color: #FFFFFF;
-  margin-left: 50px;
-}
-
-.coment{
-  width: 50%;
-  height: 137px;
-  background: #F7F7F7;
-  border-radius: 10px 0px 0px 10px;
-  margin-left: 50px;
-}
-
-.buttonComent{
-  width: 231px;
-  height: 137px;
-  color: #F7F7F7;
-  background: #8070D7;
-  border-radius: 0px 10px 10px 0px;
-}
-
-.boxComent{
-  width: 1321px;
-  height: 509px;
-  overflow-y: scroll;
-  background: #FFFFFF;
-  border-radius: 40px;
-  margin-left: 50px;
-  margin-top: 30px;
-}
-
-.shareGame{
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 64px;
-  line-height: 77px;
-  color: #FFFFFF;
-  margin-left: 50px;
-  margin-top: 30px;
-}
-
-.cardShareFila-1, .cardShareFila-2{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cardShareFila-1{
-  margin-top: 32px;
-}
-
-.cardShareFila-2{
-  margin-top: 69px;
-}
-
-.cardShare, .cardShareLeft{
-  height: 206px;
-  width: 532px;
-  border-radius: 25px;
-  background-color: #8070D7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.cardShare > h3, .cardShareLeft > h3{
-  height: 77px;
-  width: 266px;
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 800;
-  font-size: 64px;
-  line-height: 77px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: #FFFFFF;
-}
-
-.cardShareLeft{
-  margin-right: 49px;
-}
-
-@media screen and (min-width: 600px){
-
-  .search-bar{
-    font-size: 30px;
-  }
-
-  .hero-title h1{
-    font-size: 76px;
-  }
-
-  .categories{
-    font-size: 32px;
-  }
-
-  .footer-title{
-    font-size: 36px;
-  }
-
-  footer ul li{
-    font-size: 32px;
-  }
+  border-right-width: 0px;
+  border-left-width: 0px;
+  background-color: #CC0000;
+  border: 0px;
 }

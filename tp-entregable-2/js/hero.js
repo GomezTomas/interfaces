@@ -1,13 +1,57 @@
 const hamburguer = document.querySelector('.hamburguer');
 const menuHamburguer = document.querySelector('.menuHamburguer');
-const userSection = document.querySelector('.userSection')
-const buttonsMenuSection = document.querySelector('.buttonsMenuSection')
-const shareAccount = document.querySelector('.shareAccount')
 
 hamburguer.addEventListener("click", function(){
-    menuHamburguer.classList.toggle("open");
-    userSection.classList.toggle("open");
-    buttonsMenuSection.classList.toggle("open");
-    shareAccount.classList.toggle("open");
     hamburguer.classList.toggle("active");
+    menuHamburguer.classList.toggle("open");
+    
 });
+
+let slider = document.querySelector(".slider");
+let innerSlider = document.querySelector(".slider-inner");
+
+let pressed = false;
+let startX;
+let x;
+
+slider.addEventListener("mousedown", function(e) {
+    pressed = true;
+    startX = e.offsetX - innerSlider.offsetLeft;
+    slider.style.cursor = 'grabbing';
+});
+
+slider.addEventListener("mouseenter", function() {
+    slider.style.cursor = 'grab';
+});
+
+slider.addEventListener("mouseup", function() {
+    slider.style.cursor = 'grab';
+});
+
+window.addEventListener("mouseup", function() {
+    pressed = false;
+});
+
+slider.addEventListener("mousemove", function(e) {
+    if(!pressed) return;
+    e.preventDefault();
+
+    x = e.offsetX
+
+    innerSlider.style.left = `${x - startX}px`
+    checkboundary();
+})
+
+function checkboundary(){
+    let outer = slider.getBoundingClientRect();
+    let inner = innerSlider.getBoundingClientRect();
+
+    console.log(outer);
+    console.log(inner);
+
+    if(parseInt(innerSlider.style.left) > 0){
+        innerSlider.style.left = "0px";
+    }else if(inner.right < outer.right){
+        innerSlider.style.left = `-${inner.width - outer.width}px`
+    }
+ }
