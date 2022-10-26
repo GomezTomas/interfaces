@@ -187,7 +187,6 @@ footer ul li{
 
 .headerHero{
   margin-bottom: 0px;
-  width: 100%;
 }
 
 .hamburguer{
@@ -356,12 +355,14 @@ footer ul li{
   width: 100%;
 }
 
+
+
 .titleHero-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%
+  width: 100%;
 }
 
 .titleHero{
@@ -391,13 +392,12 @@ footer ul li{
 }
 
 .available{
+  background-color: #CC0000;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 82px;
-  left: 0px;
-  top: 369px;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
@@ -414,17 +414,8 @@ footer ul li{
 }
 
 .sectionHero{
-  width: 100%;
-  height: 386px;
   background-color: #CC0000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.parrafoHero{
-  margin-left: 6px;
-  margin-right: 6px;
+  width: 100%;
   color: #F7F7F7;
   font-family: 'Lato';
   font-style: normal;
@@ -478,8 +469,9 @@ footer ul li{
   font-size: 64px;
   line-height: 77px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  text-align: center;  
+  color: #F7F7F7;
 }
 
 .descripcionHero{
@@ -511,6 +503,7 @@ footer ul li{
 }
 
 .cards-features{
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
