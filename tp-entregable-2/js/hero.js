@@ -1,12 +1,5 @@
-const hamburguer = document.querySelector('.hamburguer');
-const menuHamburguer = document.querySelector('.menuHamburguer');
 
-hamburguer.addEventListener("click", function(){
-    hamburguer.classList.toggle("active");
-    menuHamburguer.classList.toggle("open");
-    
-});
-
+/*CARRUSEL HERO */
 let slider = document.querySelector(".slider");
 let innerSlider = document.querySelector(".slider-inner");
 
