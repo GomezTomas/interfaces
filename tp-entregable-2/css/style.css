@@ -132,7 +132,7 @@ a{
   top: 0;
   left: 0;
   height: 100%;
-  width: 120%;
+  width: 115%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   pointer-events: none;
@@ -195,12 +195,15 @@ color: #FFFFFF;
   left: 0;
   right: 0;
   z-index: 2;
-  color: #F7F7F7;
+  color: #1e1e1e;
   font-family: 'Kumbh Sans';
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
   line-height: 20px;
+  background-color:#0CB594;
+  width: 100%;
+  border-radius: 90%;
 }
 
 .titleGame::before{
