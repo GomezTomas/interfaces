@@ -39,6 +39,9 @@ idClubManager.innerHTML = juegosComprables[4].precio;
 let idLol = document.getElementById("precioLol");
 idLol.innerHTML = juegosComprables[0].precio;
 
+let idLolRecomend = document.getElementById("precioLolRecomend");
+idLolRecomend.innerHTML = juegosComprables[0].precio;
+
 let idMetalSlug = document.getElementById("precioMetalSlug");
 idMetalSlug.innerHTML = juegosComprables[3].precio;
 
@@ -47,6 +50,9 @@ idTheLastStand.innerHTML = juegosComprables[5].precio;
 
 let idFridayNightFunkin = document.getElementById("precioFridayNightFunkin");
 idFridayNightFunkin.innerHTML = juegosComprables[1].precio;
+
+let idFridayNightFunkinRecomend = document.getElementById("precioFridayNightFunkinRecomend");
+idFridayNightFunkinRecomend.innerHTML = juegosComprables[1].precio;
 
 let idGeometryDash = document.getElementById("precioGeometryDash");
 idGeometryDash.innerHTML = juegosComprables[2].precio;
@@ -64,11 +70,24 @@ let btnLol = document.getElementById("btnLol").addEventListener("click", functio
     }
 });
 
+let btnLolRecomend = document.getElementById("btnLolRecomend").addEventListener("click", function() {
+    let LolRecomend = juegosComprables[0];
+    if(LolRecomend.comprado == false){
+        LolRecomend.comprado = true;
+        comprar(LolRecomend, idLolRecomend);
+        document.getElementById("btnLolRecomend").innerHTML = "Comprado";
+    }else if(LolRecomend.comprado == true){
+        LolRecomend.comprado = false;
+        eliminarJuegoCarrito(LolRecomend, idLolRecomend);
+        document.getElementById("btnLolRecomend").innerHTML = "Comprar";
+    }
+})
+
 let btnFridayNightFunkin = document.getElementById("btnFridayNightFunkin").addEventListener("click", function(){
     let fridayNightFunkin = juegosComprables[1];
     if(fridayNightFunkin.comprado == false){
         fridayNightFunkin.comprado = true;
-        comprar(fridayNightFunkin, idFridayNightFunkin);
+        comprar(fridayNightFunkin, idFridayNightFunkinRecomend);
         document.getElementById("btnFridayNightFunkin").innerHTML = "Comprado";
     }else if(fridayNightFunkin.comprado == true){
         fridayNightFunkin.comprado = false;
@@ -76,6 +95,20 @@ let btnFridayNightFunkin = document.getElementById("btnFridayNightFunkin").addEv
         document.getElementById("btnFridayNightFunkin").innerHTML = "Comprar";
     }
 });
+
+let btnFridayNightFunkinRecomend = document.getElementById("btnFridayNightFunkinRecomend").addEventListener("click", function(){
+    let fridayNightFunkinRecomend = juegosComprables[1];
+    if(fridayNightFunkinRecomend.comprado == false){
+        fridayNightFunkinRecomend.comprado = true;
+        comprar(fridayNightFunkinRecomend, idFridayNightFunkinRecomend);
+        document.getElementById("btnFridayNightFunkinRecomend").innerHTML = "Comprado";
+    }else if(fridayNightFunkinRecomend.comprado == true){
+        fridayNightFunkinRecomend.comprado = false;
+        eliminarJuegoCarrito(fridayNightFunkinRecomend, idFridayNightFunkinRecomend);
+        document.getElementById("btnFridayNightFunkinRecomend").innerHTML = "Comprar";
+    }
+});
+
 let btnGeometryDash = document.getElementById("btnGeometryDash").addEventListener("click", function(){
     let GeometryDash = juegosComprables[2];
     if(GeometryDash.comprado == false){
