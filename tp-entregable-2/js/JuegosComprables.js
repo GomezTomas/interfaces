@@ -56,19 +56,24 @@ let btnLol = document.getElementById("btnLol").addEventListener("click", functio
     if(Lol.comprado == false){
         Lol.comprado = true;
         comprar(Lol, idLol);
+        document.getElementById("btnLol").innerHTML = "Comprado";
     }else if(Lol.comprado == true){
         Lol.comprado = false;
         eliminarJuegoCarrito(Lol, idLol);
+        document.getElementById("btnLol").innerHTML = "Comprar";
     }
 });
+
 let btnFridayNightFunkin = document.getElementById("btnFridayNightFunkin").addEventListener("click", function(){
     let fridayNightFunkin = juegosComprables[1];
     if(fridayNightFunkin.comprado == false){
         fridayNightFunkin.comprado = true;
         comprar(fridayNightFunkin, idFridayNightFunkin);
+        document.getElementById("btnFridayNightFunkin").innerHTML = "Comprado";
     }else if(fridayNightFunkin.comprado == true){
         fridayNightFunkin.comprado = false;
         eliminarJuegoCarrito(fridayNightFunkin, idFridayNightFunkin);
+        document.getElementById("btnFridayNightFunkin").innerHTML = "Comprar";
     }
 });
 let btnGeometryDash = document.getElementById("btnGeometryDash").addEventListener("click", function(){
@@ -76,9 +81,11 @@ let btnGeometryDash = document.getElementById("btnGeometryDash").addEventListene
     if(GeometryDash.comprado == false){
         GeometryDash.comprado = true;
         comprar(GeometryDash, idGeometryDash);
+        document.getElementById("btnGeometryDash").innerHTML = "Comprado";
     }else if(GeometryDash.comprado == true){
         GeometryDash.comprado = false;
         eliminarJuegoCarrito(GeometryDash, idGeometryDash);
+        document.getElementById("btnGeometryDash").innerHTML = "Comprar";
     }
 });
 let btnMetalSlug = document.getElementById("btnMetalSlug").addEventListener("click", function(){
@@ -86,9 +93,11 @@ let btnMetalSlug = document.getElementById("btnMetalSlug").addEventListener("cli
     if(metalSlug.comprado == false){
         metalSlug.comprado = true;
         comprar(metalSlug, idMetalSlug);
+        document.getElementById("btnMetalSlug").innerHTML = "Comprado";
     }else if(metalSlug.comprado == true){
         metalSlug.comprado = false;
         eliminarJuegoCarrito(metalSlug, idMetalSlug);
+        document.getElementById("btnMetalSlug").innerHTML = "Comprar"
     }
 });
 let btnClubManager = document.getElementById("btnClubManager").addEventListener("click", function(){
@@ -96,9 +105,11 @@ let btnClubManager = document.getElementById("btnClubManager").addEventListener(
     if(clubManager.comprado == false){
         clubManager.comprado = true;
         comprar(clubManager, idClubManager);
+        document.getElementById("btnClubManager").innerHTML = "Comprado";
     }else if(clubManager.comprado == true){
         clubManager.comprado = false;
         eliminarJuegoCarrito(clubManager, idClubManager);
+        document.getElementById("btnClubManager").innerHTML = "Comprar";
     }
 });
 let btnTheLastStand = document.getElementById("btnTheLastStand").addEventListener("click", function(){
@@ -106,16 +117,18 @@ let btnTheLastStand = document.getElementById("btnTheLastStand").addEventListene
     if(theLastStand.comprado == false){
         theLastStand.comprado = true;
         comprar(theLastStand, idTheLastStand);
+        document.getElementById("btnTheLastStand").innerHTML = "Comprado";
     }else if(theLastStand.comprado == true){
         theLastStand.comprado = false;
         eliminarJuegoCarrito(theLastStand, idTheLastStand);
+        document.getElementById("btnTheLastStand").innerHTML = "Comprar";
     }
 });
 
 let notificationActive;
 
 function comprar(juego, id) {
-    id.innerHTML = "Agregado al carrito";
+    id.innerHTML = "Carrito";
     carrito.push(juego)
     document.styleSheets[0].addRule(".hamburguer::before", "display: flex;");
     document.styleSheets[0].addRule(".miCarrito::before", "display: flex;");
