@@ -10,15 +10,15 @@
 </head>
 <body>
   <header>
-    <img src="assets/logos/icon.svg" alt="Logo pagina web">
+    <a href="index.html"><img src="assets/logos/icon.svg" alt="Logo pagina web"></a>
     <div class="search-bar">
       <p>Buscar</p>
     </div>
-      <div class="hamburguer">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="hamburguer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
   <nav>
     <div class="menuHamburguer">
@@ -32,7 +32,7 @@
       <div class="buttonsMenuSection">
         <button>Mi perfil</button>
         <button>Mis juegos</button>
-        <button>Mi carrito</button>
+        <button class="miCarrito">Mi carrito</button>
         <button>Contactanos</button>
         <button>Cerrar sesion</button>
       </div>
@@ -83,7 +83,7 @@
       <div class="slide-img-categories" id="slide-img-categories-deportes">
         <div class="titleGame"><h3>Club Manager</h3></div>
         <img src="assets/img/club_manager.png" alt="club_manager">
-        <div class="ref"><h4>Precio</h4><a href=""><button class="buttonPlay">Jugar</button></div></a>
+        <div class="ref"><h4 id="precioClubManager">Precio</h4><button class="buttonPlay" id="btnClubManager">Jugar</button></div>
 
       </div>
       <div class="slide-img-categories" id="slide-img-categories-deportes">
@@ -157,19 +157,19 @@
       <div class="slide-img-categories" id="slide-img-categories-accion">
         <div class="titleGame"><h3>League Of Legends</h3></div>
         <img src="assets/img/lol.png" alt="League of legends">
-        <div class="ref"><h4>Precio</h4><a href=""><button class="buttonPlay">Jugar</button></div></a>
+        <div class="ref"><h4 id="precioLol">Precio</h4><button class="buttonPlay" id="btnLol">Jugar</button></div>
 
       </div>
       <div class="slide-img-categories" id="slide-img-categories-accion">
         <div class="titleGame"><h3>Metal Slug</h3></div>
         <img src="assets/img/metal_slug.png" alt="metal_slug">
-        <div class="ref"><h4>Precio</h4><a href=""><button class="buttonPlay">Jugar</button></div></a>
+        <div class="ref"><h4 id="precioMetalSlug">Precio</h4><button class="buttonPlay" id="btnMetalSlug">Jugar</button></div>
 
       </div>
       <div class="slide-img-categories" id="slide-img-categories-accion">
         <div class="titleGame"><h3>The Last Stand</h3></div>
         <img src="assets/img/the_last_stand.png" alt="the_last_stand">
-        <div class="ref"><h4>Precio</h4><a href=""><button class="buttonPlay">Jugar</button></div></a>
+        <div class="ref"><h4 id="precioTheLastStand">Precio</h4><button class="buttonPlay" id="btnTheLastStand">Jugar</button></div>
 
       </div>
       <div class="slide-img-categories" id="slide-img-categories-accion">
@@ -200,13 +200,13 @@
       <div class="slide-img-categories" id="slide-img-categories-habilidad">
         <div class="titleGame"><h3>Friday Night Funkin</h3></div>
         <img src="assets/img/friday_night_funkin.png" alt="friday_night_funkin">
-        <div class="ref"><h4>Precio</h4><a href=""><button class="buttonPlay">Jugar</button></div></a>
+        <div class="ref"><h4 id="precioFridayNightFunkin">Precio</h4><button class="buttonPlay" id="btnFridayNightFunkin">Jugar</button></div>
 
       </div>
       <div class="slide-img-categories" id="slide-img-categories-habilidad">
         <div class="titleGame"><h3>Geometry Dash</h3></div>
         <img src="assets/img/Geometry_dash.png" alt="Geometry_dash">
-        <div class="ref"><h4>Precio</h4><a href=""><button class="buttonPlay">Jugar</button></div></a>
+        <div class="ref"><h4 id="precioGeometryDash">Precio</h4><button class="buttonPlay" id="btnGeometryDash">Jugar</button></div>
 
       </div>
       <div class="slide-img-categories" id="slide-img-categories-habilidad">
@@ -270,5 +270,6 @@
   </footer>
   <script src="js/index.js"></script>
   <script src="js/menu.js"></script>
+  <script src="js/JuegosComprables.js"></script>
 </body>
 </html>
