@@ -13,6 +13,64 @@ body {
   height: 100%;
 }
 
+.main-container{
+  display: none;
+}
+
+.loader{
+  margin: 0px 20%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 64px;
+  font-family: 'IBM Plex Sans Thai Looped', sans-serif;
+  color: #FFFFFF;
+}
+
+@keyframes chargeBar {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.loader-bar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #F7F7F7;
+  font-size: 20px;
+  font-weight: 700;
+  border-radius: 20px;
+  border: 3px solid #8070D7;
+  background: linear-gradient(45deg, #2713A6, #A268D5);
+  /* width: 0%; */
+  height: 40px;
+  /* background-color: red; */
+  animation: chargeBar ease 5s
+}
+
+
+.loader img{
+  height: 40vh;
+}
+
+
+
+.show-main{
+  display: block;
+}
+
 .search-bar{
   display: flex;
   align-items: center;
