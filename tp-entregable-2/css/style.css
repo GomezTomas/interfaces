@@ -477,7 +477,7 @@ footer ul li{
 .menuHamburguer{
   position: fixed;
   top: 0px;
-  right: -500px;
+  right: -1000px;
   width: 45rem;
   height: 857px;
   z-index: 2;
