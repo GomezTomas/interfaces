@@ -169,6 +169,48 @@ a{
   margin-bottom: 14px;
 }
 
+.name-card{    
+  position: absolute;
+  bottom: 4px;
+  min-height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 0 0 70px 70px;
+  background-color: #8070D7;
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  pointer-events: all;
+}
+
+.games-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .name-card button{
+  font-family: 'Kumbh Sans', sans-serif;
+  background-color: #7421BB;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  pointer-events: all;
+} */
+
+.img-recommended{
+  height: 290px;
+  text-align: center;
+}
+
+.position-relative{
+  position: relative;
+}
+
 .carrusel-categories{
   margin-top: 30px;
   margin-bottom: 30px;
@@ -202,6 +244,7 @@ a{
   height: 100%;
   text-align: center;
   position: relative;
+  margin-right: 20px;
 }
 
 .ref{
@@ -234,16 +277,32 @@ color: #FFFFFF;
   height: 40.306854248046875px;
 }
 
-.buttonPlay{
-  height: 40.306854248046875px;
-  width: 94px;
-  border-radius: 19px;
-  pointer-events: painted;
+/* .name-card button{
+  font-family: 'Kumbh Sans', sans-serif;
   background-color: #7421BB;
-  color: #FFFFFF;
-  position: absolute;
-  top: 15px;
-  right: 40px;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  pointer-events: all;
+} */
+
+
+.buttonPlay{
+  font-family: 'Kumbh Sans', sans-serif;
+  background-color: #7421BB;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+  color: white;
+  font-weight: 700;
+  pointer-events: all;
+}
+
+.buttonPlay:hover{
+  background-color: #5C4BC9;
 }
 
 .titleGame{
@@ -788,12 +847,12 @@ footer ul li{
   padding: 10px 60px;
   border-radius: 20px;
   justify-content: space-evenly;
-  position: initial;
-  bottom: 40%;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
   font-family: 'Kumbh Sans';
   color: #F7F7F7;
 }
-
 
 .img-game{
   display: flex;
