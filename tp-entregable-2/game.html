@@ -57,11 +57,16 @@
         <img src="assets/img/cuatro_en_linea_game.png" alt="Juego cuatro en linea">
         <div class="play-game">
           <h2>Jugar ahora!</h2>
-          <button class="buttonPlay">Jugar</button>
+          <button class="buttonPlay" id="playGame">Jugar</button>
         </div>
-        <!-- <div class="play-game">
-          <p>Juga ahora mismo!</p>
-        </div> -->
+        <div class="loadingGame" id="loading">
+          <div class="loader" id="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <h1 class="porcentaje" id="porcentaje"></h1>
+        </div>
       </div>
     </section>
 
@@ -176,5 +181,6 @@
     </div>
   </footer>
   <script src="js/menu.js"></script>
+  <script src="js/porcentajeGame.js"></script>
 </body>
 </html>
