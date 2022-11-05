@@ -1187,6 +1187,34 @@ h3{
   animation-delay: -0.25s;
 }
 
+.game-intro {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 3s ease-in;
+  z-index: -1;
+}
+
+.game-intro.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.pressKey {
+  display: none;
+}
+
+.pressKey.active {
+  position: absolute;
+  display: block;
+  top: 92%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  color: #fff;
+  Font-family: Consolas, monaco, monospace;
+}
 
 @keyframes loader {
   0% {
@@ -1211,8 +1239,24 @@ h3{
 }
 
 .porcentaje {
+  display: none;
+}
+
+.porcentaje.active {
+  display: block;
   Font-family: Consolas, monaco, monospace;
 }
+
+.myCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.myCanvas.active {
+  z-index: 1;
+} 
 
 @media only screen and (max-width: 1370px) {
 
