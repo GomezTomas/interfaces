@@ -55,7 +55,7 @@
     <section class="img-game">
       <div class="position-relative">
         <img class="imgGame" src="assets/img/cuatro_en_linea_game.png" alt="Juego cuatro en linea">
-        <div class="play-game">
+        <div class="play-game" id="play-game">
           <h2>Jugar ahora!</h2>
           <button class="buttonPlay" id="playGame">Jugar</button>
         </div>
@@ -74,6 +74,37 @@
           <h2>Presione culaquier tecla para jugar!</h2>
         </div>
         <canvas id="myCanvas" class="myCanvas" width="1353" height="670"></canvas>
+        <div class="menuGame" id="menuGame">
+          <div class="imgMenu" id="imgMenuUno">
+            <img id="img-uno" src="/tp-entregable-2/assets/img/riverMenu.png" alt="">
+          </div>
+          <div class="buttonCanvas" id="buttonCanvas">
+            <button id="jugarMenu">Jugar</button>
+            <button id="comoJugarMenu">Como jugar</button>
+          </div>
+          <div class="imgMenu" id="imgMenuDos">
+            <img id="img-dos" src="/tp-entregable-2/assets/img/bocaMenu.png" alt="">
+          </div>
+
+          <div class="jugarOpciones" id="jugarOpciones">
+            <button id="">3 en linea</button>
+            <button id="">4 en linea</button>
+            <button id="">5 en linea</button>
+            <button id="volver">Menu</button>
+          </div>
+
+          <div class="comoJugar" id="comoJugar">
+            <h2>Como jugar</h2>
+            <p>Decida con su rival que equipo va a usar cada uno y jueguen de acuerdo al turno que toque. Cuando sea su turno, haga click sobre la ficha del equipo que haya elegido y arratre hasta el espacio donde desee.
+              El objetivo del juego es formar una fila/columna o una secuencia de manera diagonal de las fichas de su equipo.
+            </p>
+            <img src="/tp-entregable-2/assets/img/click.gif" alt="">
+            <div class="menuHelp" id="menuHelp">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -188,6 +219,6 @@
     </div>
   </footer>
   <script src="js/menu.js"></script>
-  <script src="js/porcentajeGame.js"></script>
+  <script src="js/game.js"></script>
 </body>
 </html>
