@@ -54,7 +54,7 @@ window.addEventListener("keypress", () => {
         let canvasHeight = canvas.height;
 
         let img = new Image();
-        img.src = '/tp-entregable-2/assets/img/canchaFutbol.png';
+        img.src = './assets/img/canchaFutbol.png';
         img.onload = function(){
             ctx.drawImage(img, 0, 0);
         }
@@ -69,13 +69,13 @@ window.addEventListener("keypress", () => {
         imgMenuDos.classList.toggle("active");
         let buttonJugar = document.getElementById("jugarMenu");
         buttonJugar.addEventListener("mouseenter", () => {
-            document.getElementById("img-uno").src = "/tp-entregable-2/assets/img/riverMenu.png";
-            document.getElementById("img-dos").src = "/tp-entregable-2/assets/img/bocaMenu.png";
+            document.getElementById("img-uno").src = "./assets/img/riverMenu.png";
+            document.getElementById("img-dos").src = "./assets/img/bocaMenu.png";
         });
         let buttonComoJugar = document.getElementById("comoJugarMenu");
         buttonComoJugar.addEventListener("mouseenter", () => {
-            document.getElementById("img-uno").src = "/tp-entregable-2/assets/img/signoPreguntaMenu.png";
-            document.getElementById("img-dos").src = "/tp-entregable-2/assets/img/teclasMenu.png";
+            document.getElementById("img-uno").src = "./assets/img/signoPreguntaMenu.png";
+            document.getElementById("img-dos").src = "./assets/img/teclasMenu.png";
         });
 
         buttonJugar.addEventListener("click", () => {
@@ -119,11 +119,12 @@ window.addEventListener("keypress", () => {
         btn5EnLinea.addEventListener("click", () => {
             jugarOpciones.classList.toggle("active");
             let img = new Image();
-            img.src = '/tp-entregable-2/assets/img/Tablero_5_en_linea.png';
+            img.src = './assets/img/Tablero_5_en_linea.png';
             img.onload = function() {
                 ctx.drawImage(img, 150, 0);
             }
             mode5line(ctx, figures, lastClickedFigure, isMouseDown);
+            menuGame.remove();
         });
 
         let btn4EnLinea = document.getElementById("4_en_linea");
@@ -137,23 +138,42 @@ window.addEventListener("keypress", () => {
             jugarOpciones.classList.toggle("active");
             // mode3line(ctx);
         });
+        
+        canvas.addEventListener( "mousedown", (e) => {
+            console.log(e);
+            m = getMousePos(e, canvas);
+            let posX = m.x;
+            let posY = m.y;
+            let color = "#FFFFFF"
+            let fichaBoca = new Circle(posX, posY, 25, color, ctx);
+            figures.splice(1,1)
 
+        })
     }
 });
+
+function getMousePos(e, canvas){
+    let ClientRect = canvas.getBoundingClientRect();
+    return {
+        x: Math.round(e.clientX - ClientRect.left),
+        y: Math.round(e.clientY - ClientRect.top)
+    }
+}
 
 function mode5line(context, figures, lastClickedFigure, isMouseDown){
     
     let local = true;
     while(figures.length < 5){
         if(local === true){
-            fichaRiver(context, figures);
+            fichaRiver(context, figures, 30 * figures.length);
         }else{
-            fichaBoca(context, figures);
+            fichaBoca(context, figures, 30 * figures.length);
         }
         drawFigure(context, figures);
         if(local === true){
             local = false;
         }
+        console.log(figures.length);
     }
 }
 
@@ -167,14 +187,14 @@ function drawFigure(ctx, figures){
 function fichaRiver(ctx, figures){
     let posX = 75;
     let posY = 335;
-    let color = "#ffff"
+    let color = "#ff0000"
     let fichaRiver = new Circle(posX, posY, 25, color, ctx);
     figures.push(fichaRiver);
 }
 
-function fichaBoca(ctx, figures){
+function fichaBoca(ctx, figures, y){
     let posX = 1278;
-    let posY = 335;
+    let posY = 335 - y;
     let color = "#0019FB"
     let fichaBoca = new Circle(posX, posY, 25, color, ctx);
     figures.push(fichaBoca);
