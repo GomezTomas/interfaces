@@ -110,5 +110,72 @@ window.addEventListener("keypress", () => {
             imgMenuUno.classList.toggle("active");
             imgMenuDos.classList.toggle("active");
         });
+
+        let figures = [];
+        let lastClickedFigure = null;
+        let isMouseDown = false;
+
+        let btn5EnLinea = document.getElementById("5_en_linea");
+        btn5EnLinea.addEventListener("click", () => {
+            jugarOpciones.classList.toggle("active");
+            let img = new Image();
+            img.src = '/tp-entregable-2/assets/img/Tablero_5_en_linea.png';
+            img.onload = function() {
+                ctx.drawImage(img, 150, 0);
+            }
+            mode5line(ctx, figures, lastClickedFigure, isMouseDown);
+        });
+
+        let btn4EnLinea = document.getElementById("4_en_linea");
+        btn4EnLinea.addEventListener("click", () => {
+            jugarOpciones.classList.toggle("active");
+            // mode4line(ctx);
+        });
+
+        let btn3EnLinea = document.getElementById("3_en_linea");
+        btn3EnLinea.addEventListener("click", () => {
+            jugarOpciones.classList.toggle("active");
+            // mode3line(ctx);
+        });
+
     }
 });
+
+function mode5line(context, figures, lastClickedFigure, isMouseDown){
+    
+    let local = true;
+    while(figures.length < 5){
+        if(local === true){
+            fichaRiver(context, figures);
+        }else{
+            fichaBoca(context, figures);
+        }
+        drawFigure(context, figures);
+        if(local === true){
+            local = false;
+        }
+    }
+}
+
+function drawFigure(ctx, figures){
+    for(let i = 0; i < figures.length; i++){
+        figures[i].draw();
+        console.log(figures[i]);
+    }
+}
+
+function fichaRiver(ctx, figures){
+    let posX = 75;
+    let posY = 335;
+    let color = "#ffff"
+    let fichaRiver = new Circle(posX, posY, 25, color, ctx);
+    figures.push(fichaRiver);
+}
+
+function fichaBoca(ctx, figures){
+    let posX = 1278;
+    let posY = 335;
+    let color = "#0019FB"
+    let fichaBoca = new Circle(posX, posY, 25, color, ctx);
+    figures.push(fichaBoca);
+}
