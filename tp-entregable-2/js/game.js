@@ -111,10 +111,6 @@ window.addEventListener("keypress", () => {
             imgMenuDos.classList.toggle("active");
         });
 
-        let figures = [];
-        let lastClickedFigure = null;
-        let isMouseDown = false;
-
         let btn5EnLinea = document.getElementById("5_en_linea");
         btn5EnLinea.addEventListener("click", () => {
             jugarOpciones.classList.toggle("active");
@@ -123,7 +119,7 @@ window.addEventListener("keypress", () => {
             img.onload = function() {
                 ctx.drawImage(img, 150, 0);
             }
-            mode5line(ctx, figures, lastClickedFigure, isMouseDown);
+            mode5line(ctx, canvas, canvasWidth, canvasHeight);
         });
 
         let btn4EnLinea = document.getElementById("4_en_linea");
@@ -141,41 +137,51 @@ window.addEventListener("keypress", () => {
     }
 });
 
-function mode5line(context, figures, lastClickedFigure, isMouseDown){
-    
-    let local = true;
-    while(figures.length < 5){
-        if(local === true){
-            fichaRiver(context, figures);
-        }else{
-            fichaBoca(context, figures);
+function mode5line(ctx, canvas, canvasWidth, canvasHeight) {
+let delta = new Object();
+let X = canvasWidth/2;
+let Y = canvasHeight/2;
+
+let local = true;
+
+if(local === true){
+    let color = "#ffff";
+    let fichaRiver = new Circle(75, 335, 25, color, ctx);
+    fichaRiver.draw();
+
+canvas.addEventListener("mousedown", function(evt) {
+   
+    let mousePos = oMousePos(canvas, evt);
+    fichaRiver.draw();
+    if(ctx.isPointInPath(mousePos.x, mousePos.y)){
+        fichaRiver.setArrastrar(true);
+        delta.x = X - mousePos.x;
+        delta.y = Y - mousePos.y;
         }
-        drawFigure(context, figures);
-        if(local === true){
-            local = false;
+    }, false);
+        
+canvas.addEventListener("mousemove", function(evt) {
+    let mousePos = oMousePos(canvas, evt);
+
+    if(fichaRiver.getArrastrar){
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        X = mousePos.x + delta.x;
+        Y = mousePos.y + delta.y;
+        fichaRiver.draw();
         }
-    }
+    }, false);
+        
+canvas.addEventListener("mouseup", function(evt) {
+    fichaRiver.setArrastrar(false);
+    }, false);
 }
 
-function drawFigure(ctx, figures){
-    for(let i = 0; i < figures.length; i++){
-        figures[i].draw();
-        console.log(figures[i]);
-    }
 }
 
-function fichaRiver(ctx, figures){
-    let posX = 75;
-    let posY = 335;
-    let color = "#ffff"
-    let fichaRiver = new Circle(posX, posY, 25, color, ctx);
-    figures.push(fichaRiver);
-}
-
-function fichaBoca(ctx, figures){
-    let posX = 1278;
-    let posY = 335;
-    let color = "#0019FB"
-    let fichaBoca = new Circle(posX, posY, 25, color, ctx);
-    figures.push(fichaBoca);
-}
+function oMousePos(canvas, evt) {
+    let rect = canvas.getBoundingClientRect();
+        return {// devuelve un objeto
+            x: Math.round(evt.clientX - rect.left),
+            y: Math.round(evt.clientY - rect.top)
+        };
+}    

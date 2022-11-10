@@ -1,26 +1,31 @@
-class Circle extends Figure {
-    constructor(posX, posY, radius, fill, context){
-        super(posX, posY, fill, context);
-
+class Circle {
+    constructor(posX, posY, radius, fill, ctx){
+        this.posX = posX;
+        this.posY = posY;
+        this.fill = fill;
+        this.ctx = ctx;
         this.radius = radius;
+        this.arrastrar = false;
     }
 
     draw(){
-        super.draw();
         this.ctx.beginPath();
         this.ctx.arc(this.posX, this.posY, this.radius, 0, 2 * Math.PI);
+        this.ctx.fillStyle = this.fill
         this.ctx.fill();
-
-        if(this.resaltado === true){
-            this.ctx.strokeStyle = this.resaltadoEstilo;
-            this.ctx.lineWidth = 5;
-            this.ctx.stroke();
-        }
         this.ctx.closePath();
     }
 
     getRadius(){
         return this.radius;
+    }
+
+    getArrastrar(){
+        return this.arrastrar;
+    }
+
+    setArrastrar(boolean) {
+        this.arrastrar = boolean;
     }
 
     isPointInside(x, y){
