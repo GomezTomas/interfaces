@@ -36,152 +36,463 @@ let play = document.getElementById("playGame").addEventListener("click", () => {
 
 
 
-window.addEventListener("keypress", () => {
+window.addEventListener("keypress", playActive);
 
+function playActive() {
     if(juegoActivo === true){
         setTimeout(() => {
             let gameIntro = document.getElementById("gameIntro");
             gameIntro.classList.toggle("active");
             let pressKey = document.getElementById("pressKey");
             pressKey.classList.toggle("active");
+            window.removeEventListener("keypress", playActive);
         }, 200);
 
-        let canvas = document.getElementById("myCanvas");
-        canvas.classList.toggle("active");
-        /** @type {CanvasRenderingContext2D} */
-        let ctx = canvas.getContext("2d");
-        let canvasWidth = canvas.width;
-        let canvasHeight = canvas.height;
+        let gameMenu = document.getElementById("game-menu");
+        let fichasEleccion = document.getElementById("fichasEleccion");
+        let instrucciones = document.getElementById("instrucciones");
+        fichasEleccion.classList.toggle("desactive");
+        instrucciones.classList.toggle("desactive");
+        gameMenu.classList.toggle("active");
 
-        let img = new Image();
-        img.src = '/tp-entregable-2/assets/img/canchaFutbol.png';
-        img.onload = function(){
-            ctx.drawImage(img, 0, 0);
-        }
+        
 
-        let menuGame = document.getElementById("menuGame");
-        menuGame.classList.toggle("active");
-        let buttonCanvas = document.getElementById("buttonCanvas");
-        buttonCanvas.classList.toggle("active");
-        let imgMenuUno = document.getElementById("imgMenuUno")
-        imgMenuUno.classList.toggle("active");
-        let imgMenuDos = document.getElementById("imgMenuDos")
-        imgMenuDos.classList.toggle("active");
-        let buttonJugar = document.getElementById("jugarMenu");
-        buttonJugar.addEventListener("mouseenter", () => {
-            document.getElementById("img-uno").src = "/tp-entregable-2/assets/img/riverMenu.png";
-            document.getElementById("img-dos").src = "/tp-entregable-2/assets/img/bocaMenu.png";
+        let buttonMode5 = document.getElementById("mode5");
+        let buttonMode4 = document.getElementById("mode4");
+        let buttonMode3 = document.getElementById("mode3");
+        let help = document.getElementById("help");
+        let back = document.getElementById("back");
+        let closeHelp = document.getElementById("closeHelp");
+
+        buttonMode5.addEventListener("click", () => {
+            let modo = 5;
+            elegirEscudos(mode);
         });
-        let buttonComoJugar = document.getElementById("comoJugarMenu");
-        buttonComoJugar.addEventListener("mouseenter", () => {
-            document.getElementById("img-uno").src = "/tp-entregable-2/assets/img/signoPreguntaMenu.png";
-            document.getElementById("img-dos").src = "/tp-entregable-2/assets/img/teclasMenu.png";
+        buttonMode4.addEventListener("click", () => {
+            let modo = 4;
+            elegirEscudos(mode);
+        });
+        buttonMode3.addEventListener("click", () => {
+            let modo = 3;
+            elegirEscudos(mode);
         });
 
-        buttonJugar.addEventListener("click", () => {
-            let jugarOpciones = document.getElementById("jugarOpciones");
-            jugarOpciones.classList.toggle("active");
-            buttonCanvas.classList.toggle("active");
-            imgMenuUno.classList.toggle("active");
-            imgMenuDos.classList.toggle("active");
-        });
-
-        buttonComoJugar.addEventListener("click", () => {
-            let comoJugar = document.getElementById("comoJugar");
-            comoJugar.classList.toggle("active")
-            buttonCanvas.classList.toggle("active");
-            imgMenuUno.classList.toggle("active");
-            imgMenuDos.classList.toggle("active");
+        help.addEventListener("click", () => {
+            toggle2(buttonsGame, instrucciones);
         })
 
-        let volver = document.getElementById("volver")
-        volver.addEventListener("click", () => {
-            let jugarOpciones = document.getElementById("jugarOpciones");
-            jugarOpciones.classList.toggle("active");
-            buttonCanvas.classList.toggle("active");
-            imgMenuUno.classList.toggle("active");
-            imgMenuDos.classList.toggle("active");
+        back.addEventListener("click", () => {
+            toggle2(buttonsGame, fichasEleccion);
         });
 
-        let menuHelp = document.getElementById("menuHelp");
-            menuHelp.addEventListener("click", () => {
-            comoJugar.classList.toggle("active")
-            buttonCanvas.classList.toggle("active");
-            imgMenuUno.classList.toggle("active");
-            imgMenuDos.classList.toggle("active");
-        });
+        closeHelp.addEventListener("click", () => {
+            toggle2(buttonsGame, instrucciones);
+        })
 
-        let btn5EnLinea = document.getElementById("5_en_linea");
-        btn5EnLinea.addEventListener("click", () => {
-            jugarOpciones.classList.toggle("active");
-            let img = new Image();
-            img.src = '/tp-entregable-2/assets/img/Tablero_5_en_linea.png';
-            img.onload = function() {
-                ctx.drawImage(img, 150, 0);
-            }
-            mode5line(ctx, canvas, canvasWidth, canvasHeight);
-        });
 
-        let btn4EnLinea = document.getElementById("4_en_linea");
-        btn4EnLinea.addEventListener("click", () => {
-            jugarOpciones.classList.toggle("active");
-            // mode4line(ctx);
-        });
+        function elegirEscudos(mode) {
+            let buttonsGame = document.getElementById("buttonsGame");
+            toggle2(buttonsGame, fichasEleccion);
+            let opcionA = false;
+            let opcionB = false;
 
-        let btn3EnLinea = document.getElementById("3_en_linea");
-        btn3EnLinea.addEventListener("click", () => {
-            jugarOpciones.classList.toggle("active");
-            // mode3line(ctx);
-        });
+            let buttonopcionA = document.getElementById("buttonOpcionA");
+            let buttonopcionB = document.getElementById("buttonOpcionB");
 
+            buttonopcionA.addEventListener("click", () => {
+                let imgFichaRiver = "/tp-entregable-2/assets/img/riverFicha.png";
+                let imgFichaBoca = "/tp-entregable-2/assets/img/fichaBoca.png";
+
+                // play(imgFichaRiver, imgFichaBoca, mode);
+            });
+
+            buttonopcionB.addEventListener("click", () => {
+                let imgFichaRiver = "/tp-entregable-2/assets/img/fichaRiver2.png";
+                let imgFichaBoca = "/tp-entregable-2/assets/img/fichaBoca2.png.png";
+
+                // play(imgFichaRiver, imgFichaBoca, mode);
+            });
+        }
+
+        function toggle2(toggle1, toggle2) {
+            toggle1.classList.toggle("desactive");
+            toggle2.classList.toggle("desactive");
+        }
+
+    //     let canvas = document.getElementById("myCanvas");
+    //     canvas.classList.toggle("active")
+    // /** @type {CanvasRenderingContext2D} */
+    // let ctx = canvas.getContext("2d");
+    // let canvasWidth = canvas.width;
+    // let canvasHeight = canvas.height;
+    // let lastClickedFigure = null;
+    // let isMouseDown = false;
+    // let fichasEnPartida = [];
+    // let columnas = 10;
+    // let filas = 10;
+    // let matriz = [];
+    // let modo5 = 5;
+    // let cronometroJugador = 0;
+    // let cronometroPartida = 0;
+
+    // let inicioY = 0;
+    // let finY = 67;
+
+    // for (let x = 0; x < filas; x++) {
+    //     let fila = [];
+    //     let inicioX = 150;
+    //     let finX = 150 + 105.3;
+    //     for (let y = 0; y < columnas; y++) {
+    //         casillero = new Casillero(ctx, inicioX, finX, inicioY, finY);
+    //         fila.push(casillero);
+    //         inicioX = inicioX + 105.3;
+    //         finX = finX + 105.3;
+    //     }
+    //     matriz.push(fila);
+    //     inicioY = inicioY + 67;
+    //     finY = finY + 67;
+    // }
+
+    // console.log(matriz);
+
+    // for (let i = 0; i < matriz.length; i++) {
+    //     for (let j = 0; j < matriz[i].length; j++) {
+    //         matriz[i][j].draw();
+    //     }
+    // }
+
+    // let local = true;
+
+    // tiempoDePartida();
+
+    // timepoDelJugador();
+
+    // function timepoDelJugador() {
+    //         setInterval(() => {
+    //         if(cronometroPartida < 5){
+    //             if(cronometroJugador < 15){
+    //                 if(cronometroJugador == 0 && local === true){
+    //                     let color = 'red';
+    //                     let x = 75;
+    //                     let imgFicha = "/tp-entregable-2/assets/img/riverFicha.png";
+    //                     drawFicha("River", x, color, imgFicha); 
+    //                     local = false;
+    //                 }else if (cronometroJugador == 0 && local === false){
+    //                     let color = 'blue';
+    //                     let x = 1278;
+    //                     let imgFicha = "/tp-entregable-2/assets/img/fichaBoca.png";
+    //                     drawFicha("Boca", x, color, imgFicha); 
+    //                     local = true;
+    //                 }
+    //                 cronometroJugador++;
+    //             }else{
+    //                 fichasEnPartida.pop();
+    //                 cronometroJugador = 0;
+    //             }
+
+                
+    //         }
+    //     }, 1000);
+    // }
+
+    // function tiempoDePartida() {
+    //     let tiempoPartida = setInterval(() => {
+    //         if(cronometroPartida < 5){
+    //             cronometroPartida = cronometroPartida + 1;
+    //             console.log(cronometroPartida);
+    //             console.log(`${cronometroPartida}`);
+    //             if(cronometroPartida == 5) {
+    //                 console.log(`${cronometroPartida}`);
+    //             }
+    //         }else{
+    //             clearInterval(tiempoPartida);
+    //         }
+    //     }, 60000);
+
+    // }
+
+    // function drawFicha(name, x, color, img){
+    //     ficha = new Circle(name, x, 335, 25, color ,ctx, img);
+    //     fichasEnPartida.push(ficha);
+    //     actualizar();
+    // }
+
+    // function actualizar() {
+    //     clearCanvas();
+    //     for (let i = 0; i < fichasEnPartida.length; i++) {
+    //         fichasEnPartida[i].draw();
+    //     }
+    // }
+
+    // function clearCanvas() {
+    //     ctx.fillStyle = "green";
+    //     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    //     for (let i = 0; i < matriz.length; i++) {
+    //         for (let j = 0; j < matriz[i].length; j++) {
+    //             matriz[i][j].draw();
+    //             matriz[i][j].drawObj();
+    //         }
+    //     }
+    // }
+
+    // canvas.addEventListener("mousedown", onMouseDown, false);
+
+    // function onMouseDown(e) {
+    //     isMouseDown = true;
+
+    //     if(lastClickedFigure != null) {
+    //         lastClickedFigure = null;
+    //     }
+
+    //     let clickFig = findClickedFigure(e.layerX, e.layerY);
+    //     if(clickFig != null) {
+    //         lastClickedFigure = clickFig;
+    //     }
+    //     actualizar();
+    // }
+
+    // function findClickedFigure(x, y) {
+    //     for (let i = 0; i < fichasEnPartida.length; i++) {
+    //         const element = fichasEnPartida[i];
+    //         if(element.isPointInside(x, y)) {
+    //             return element;
+    //         }
+    //     }
+    // }
+
+    // canvas.addEventListener("mousemove", onMouseMove, false);
+
+    // function onMouseMove(e) {
+    //     if(isMouseDown && lastClickedFigure != null){
+    //         lastClickedFigure.setPosition(e.layerX, e.layerY);
+    //         actualizar();
+    //     }
+    // }
+
+    // canvas.addEventListener("mouseup", onMouseUp, false);
+
+    // function onMouseUp (e) {
+    //     isMouseDown = false;
+        
+    //     for (let i = 0; i < matriz.length; i++) {
+    //         for (let j = 0; j < matriz[i].length; j++) {
+    //             if(lastClickedFigure != null) {
+    //             if(((lastClickedFigure.getPosX() > matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < matriz[i][j].getFinX()))
+    //             && ((lastClickedFigure.getPosY() > matriz[i][j].getInicioY()) && (lastClickedFigure.getPosY() < matriz[i][j].getFinY()))) {
+    //                 matriz[i][j].setOcupado(lastClickedFigure);
+    //                 matriz[i][j].drawObj();
+                    
+    //                 setTimeout(() => {
+    //                     lastClickedFigure == null;
+    //                     fichasEnPartida.pop();
+    //                     actualizar();
+    //                 }, 100);
+
+    //                 busquedaLinea();
+    //             }
+    //             }
+    //         }
+    //     }
+    // }
+
+    // function busquedaLinea() {
+    //     let encontrado = false;
+
+    //     if(encontrado === false) {
+    //         encontrado = busquedaPorFila();
+    //     }
+
+    //     if(encontrado === false) {
+    //         encontrado = busquedaPorColumna();
+    //     }
+
+    //     if(encontrado === false) {
+    //         encontrado = busquedaPorDiagonalIzquierda();
+    //     }
+
+    //     if(encontrado === false) {
+    //         encontrado = busquedaPorDiagonalDerecha();
+    //     }
+
+
+    //     if(encontrado === true) {
+    //         cronometroPartida = 5;
+    //         console.log(`${cronometroPartida}`);
+    //     }else{
+    //         cronometroJugador = 0;
+    //     }
+        
+    // }
+
+    // function busquedaPorFila() {
+    //     let contador = 0;
+    //     let aux = "";
+
+    //     for (let i = 0; i < matriz.length; i++) {
+    //         for (let j = 0; j < matriz[i].length; j++) {
+    //             if(contador < modo5){
+    //                 if(matriz[i][j].getObj() != null) {
+    //                     if(contador == 0) {
+    //                         aux = matriz[i][j].getObj().getName();
+    //                         contador++;
+    //                     }else if(contador > 0) {
+    //                         if(matriz[i][j].getObj().getName() == aux) {
+    //                             contador++;
+    //                         }else {
+    //                             contador = 1;
+    //                             aux = matriz[i][j].getObj().getName();
+    //                         }
+    //                     }
+    //                 }else {
+    //                     if(matriz[i][j].getObj() == null) {
+    //                         contador = 0;
+    //                         aux = "";
+    //                     }
+    //                 }
+    //             }else {
+    //                 return true;
+    //             }
+    //         }
+    //         if(contador == 5) {
+    //             return true;
+    //         }else{
+    //             contador = 0;
+    //             axu = "";
+    //         }
+            
+    //     }
+    //     return false;
+    // }
+
+    // function busquedaPorColumna() {
+    //     let contador = 0;
+    //     let aux = "";
+
+    //     let columna = 0;
+    //     let fila = 0;
+
+    //     while(columna < 10) {
+    //         while(fila < 10) {
+    //             if(contador < modo5) {
+    //                 if(matriz[fila][columna].getObj() != null) {
+    //                     if(contador == 0) {
+    //                         aux = matriz[fila][columna].getObj().getName();
+    //                         contador++;
+    //                     }else if(contador > 0) {
+    //                         if(matriz[fila][columna].getObj().getName() == aux){
+    //                             contador++;
+    //                         }else {
+    //                             aux = matriz[fila][columna].getObj().getName();
+    //                             contador = 1;
+    //                         }
+    //                     }
+    //                 }else if(matriz[fila][columna].getObj() == null) {
+    //                     aux = "";
+    //                     contador = 0;
+    //                 }
+    //             }else {
+    //                 return true;
+    //             }
+    //             fila++;
+    //         }
+    //         if(contador == 5) {
+    //             return true;
+    //         }else{
+    //             columna++;
+    //             fila = 0;
+    //             contador = 0;
+    //             axu = "";
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // function busquedaPorDiagonalIzquierda() {
+    //     let contador = 0;
+    //     let aux = "";
+    //     let busqueda = false;
+
+    //     for (let i = 0; i < matriz.length; i++) {
+    //         for (let j = 0; j < matriz[i].length; j++) {
+    //             if(matriz[i][j].getObj() != null) {
+    //                 contador = 1;
+    //                 aux = matriz[i][j].getObj().getName();
+    //                 busqueda = true;
+    //                 let x = j;
+    //                 let y = i;
+    //                 while(busqueda === true) {
+    //                     if(contador < 5) {
+    //                         x++;
+    //                         y++;
+    //                         if(x < columnas && y < filas) {
+    //                             if(matriz[y][x].getObj() != null) {
+    //                                 if(matriz[y][x].getObj().getName() == aux) {
+    //                                     contador++;
+    //                                 }else {
+    //                                     busqueda = false;
+    //                                 }
+    //                             }else if(matriz[y][x].getObj() == null) {
+    //                                 busqueda = false;
+    //                             }
+    //                         }else{
+    //                             return false;
+    //                         }
+    //                     }else if(contador == 5) {
+    //                         busqueda = false;
+    //                         return true;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         if(contador == 5) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+
+    // function busquedaPorDiagonalDerecha() {
+    //     let contador = 0;
+    //     let aux = "";
+    //     let busqueda = false;
+
+    //     for (let i = 0; i < matriz.length; i++) {
+    //         for (let j = columnas-1; j >= 0; j--) {
+    //             if(matriz[i][j].getObj() != null) {
+    //                 contador = 1;
+    //                 aux = matriz[i][j].getObj().getName();
+    //                 busqueda = true;
+    //                 let x = j;
+    //                 let y = i;
+    //                 while(busqueda === true) {
+    //                     if(contador < 5) {
+    //                         x--;
+    //                         y++;
+    //                         if(x >= 0 && y < filas) {
+    //                             if(matriz[y][x].getObj() != null) {
+    //                                 if(matriz[y][x].getObj().getName() == aux) {
+    //                                     contador++;
+    //                                 }else {
+    //                                     busqueda = false;
+    //                                 }
+    //                             }else if(matriz[y][x].getObj() == null) {
+    //                                 busqueda = false;
+    //                             }
+    //                         }else{
+    //                             return false;
+    //                         }
+    //                     }else if(contador == 5) {
+    //                         busqueda = false;
+    //                         return true;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //         if(contador == 5) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
     }
-});
-
-function mode5line(ctx, canvas, canvasWidth, canvasHeight) {
-let delta = new Object();
-let X = canvasWidth/2;
-let Y = canvasHeight/2;
-
-let local = true;
-
-if(local === true){
-    let color = "#ffff";
-    let fichaRiver = new Circle(75, 335, 25, color, ctx);
-    fichaRiver.draw();
-
-canvas.addEventListener("mousedown", function(evt) {
-   
-    let mousePos = oMousePos(canvas, evt);
-    fichaRiver.draw();
-    if(ctx.isPointInPath(mousePos.x, mousePos.y)){
-        fichaRiver.setArrastrar(true);
-        delta.x = X - mousePos.x;
-        delta.y = Y - mousePos.y;
-        }
-    }, false);
-        
-canvas.addEventListener("mousemove", function(evt) {
-    let mousePos = oMousePos(canvas, evt);
-
-    if(fichaRiver.getArrastrar){
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        X = mousePos.x + delta.x;
-        Y = mousePos.y + delta.y;
-        fichaRiver.draw();
-        }
-    }, false);
-        
-canvas.addEventListener("mouseup", function(evt) {
-    fichaRiver.setArrastrar(false);
-    }, false);
 }
-
-}
-
-function oMousePos(canvas, evt) {
-    let rect = canvas.getBoundingClientRect();
-        return {// devuelve un objeto
-            x: Math.round(evt.clientX - rect.left),
-            y: Math.round(evt.clientY - rect.top)
-        };
-}    

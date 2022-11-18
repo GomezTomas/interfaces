@@ -73,39 +73,37 @@
         <div class="pressKey" id="pressKey">
           <h2>Presione culaquier tecla para jugar!</h2>
         </div>
-        <canvas id="myCanvas" class="myCanvas" width="1353" height="670"></canvas>
-        <div class="menuGame" id="menuGame">
-          <div class="imgMenu" id="imgMenuUno">
-            <img id="img-uno" src="/tp-entregable-2/assets/img/riverMenu.png" alt="">
+        <section class="game-menu" id="game-menu">
+          <img src="/tp-entregable-2/assets/img/canchaFutbol.png" alt="Fondo Menu">
+          <div class="buttonsGame" id="buttonsGame">
+            <button id="mode5">Jugar 5 en linea</button>
+            <button id="mode4">Jugar 4 en linea</button>
+            <button id="mode3">Jugar 3 en linea</button>
+            <button id="help">Instrucciones</button>
           </div>
-          <div class="buttonCanvas" id="buttonCanvas">
-            <button id="jugarMenu">Jugar</button>
-            <button id="comoJugarMenu">Como jugar</button>
-          </div>
-          <div class="imgMenu" id="imgMenuDos">
-            <img id="img-dos" src="/tp-entregable-2/assets/img/bocaMenu.png" alt="">
-          </div>
-
-          <div class="jugarOpciones" id="jugarOpciones">
-            <button id="3_en_linea">3 en linea</button>
-            <button id="4_en_linea">4 en linea</button>
-            <button id="5_en_linea">5 en linea</button>
-            <button id="volver">Menu</button>
-          </div>
-
-          <div class="comoJugar" id="comoJugar">
-            <h2>Como jugar</h2>
-            <p>Decida con su rival que equipo va a usar cada uno y jueguen de acuerdo al turno que toque. Cuando sea su turno, haga click sobre la ficha del equipo que haya elegido y arratre hasta el espacio donde desee.
-              El objetivo del juego es formar una fila/columna o una secuencia de manera diagonal de las fichas de su equipo.
-            </p>
-            <img src="/tp-entregable-2/assets/img/click.gif" alt="">
-            <div class="menuHelp" id="menuHelp">
-              <span></span>
-              <span></span>
+          <div class="fichasEleccion" id="fichasEleccion">
+            <div class="opcion">
+              <img src="/tp-entregable-2/assets/img/riverEleccion.png" alt="Escudo de River Plate"> <img src="/tp-entregable-2/assets/img/bocaEleccion.png" alt="Escudo de Boca Juniors">
+              <button id="buttonOpcionA">Opcion A</button>
+              <button id="buttonOpcionB">Opcion B</button>
+              <img src="/tp-entregable-2/assets/img/RiverEleccion2.png" alt="Escudo alternativo de River Plate"> <img src="/tp-entregable-2/assets/img/BocaEleccion2.png" alt="Escudo alternativo de Boca Juniors">
+            </div>
+            <div class="buttonBack">
+              <button id="back">Volver</button>
             </div>
           </div>
-        </div>
-      </div>
+          <div class="instrucciones" id="instrucciones">
+            <div>
+              <h2>Como jugar</h2>
+              <p>Elegir con que fichas van a jugar. Tendran un tiempo maximo de 5 minutos en total y cada jugador va a tener su turno con un timepo de 15 segundos.
+                Objetivo hacer una linea de N tamaño(depende del modo elegido) sea de manera horizontal, vertical o diagonal. Para poder formar la linea hagan click sobre su ficha, arrastrela y sueltela donde desea ubicarla.
+              </p>
+              <img src="/tp-entregable-2/assets/img/mouseGif.gif" alt="">
+              <button id="closeHelp">Cerrar</button>
+            </div>
+          </div>
+        </section>
+        <canvas class="myCanvas" id="myCanvas" width="1353" height="670"></canvas>
     </section>
 
     <section class="container">
@@ -220,7 +218,7 @@
   </footer>
   <script src="js/menu.js"></script>
   <script src="js/game.js"></script>
-  <script src="js/Figure.js"></script>
-  <script src="js/Circle.js"></script>
+  <script src="js/objetosJuego/Casillero.js"></script>
+  <script src="js/objetosJuego/Circle.js"></script>
 </body>
 </html>
