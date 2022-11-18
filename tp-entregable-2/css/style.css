@@ -1381,24 +1381,25 @@ h3{
   align-items: center;
 }
 
-/*** ESTILOS BOTÓN SLIDE LEFT ***/
 .instrucciones > div > button  {
-  background: #fff; /* color de fondo */
-  color: #078A07; /* color de fuente */
-  border: 2px solid #078A07; /* tamaño y color de borde */
+  background: #fff;
+  color: #078A07;
+  border: 2px solid #078A07;
   padding: 16px 20px;
-  border-radius: 3px; /* redondear bordes */
+  border-radius: 3px;
   position: relative;
   z-index: 1;
   overflow: hidden;
   display: inline-block;
 }
+
 .instrucciones > div > button:hover {
-  color: #fff; /* color de fuente hover */
+  color: #fff;
 }
+
 .instrucciones > div > button::after {
   content: "";
-  background: #078A07; /* color de fondo hover */
+  background: #078A07;
   position: absolute;
   z-index: -1;
   padding: 16px 20px;
@@ -1410,6 +1411,7 @@ h3{
   -webkit-transition: all 0.35s;
   transition: all 0.35s;
 }
+
 .instrucciones > div > button:hover::after {
   left: 0;
   right: 0;
