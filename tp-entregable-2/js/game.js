@@ -106,7 +106,7 @@ function playActive() {
 
             buttonopcionB.addEventListener("click", () => {
                 let imgFichaRiver = "/tp-entregable-2/assets/img/fichaRiver2.png";
-                let imgFichaBoca = "/tp-entregable-2/assets/img/fichaBoca2.png.png";
+                let imgFichaBoca = "/tp-entregable-2/assets/img/fichaBoca2.png";
 
                 play(imgFichaRiver, imgFichaBoca, mode);
             });
@@ -121,6 +121,10 @@ function playActive() {
 
             let canvas = document.getElementById("myCanvas");
             canvas.classList.toggle("active");
+            let timeGame = document.getElementById("timeGame");
+            timeGame.classList.toggle("active");
+            let timeTurn = document.getElementById("timeTurn");
+            timeTurn.classList.toggle("active");
             fichasEleccion.classList.toggle("desactive");
             gameMenu.classList.toggle("active");
 
@@ -140,19 +144,32 @@ function playActive() {
             let inicioY = 0;
             let finY = 67;
 
-            for (let x = 0; x < filas; x++) {
-                let fila = [];
-                let inicioX = 150;
-                let finX = 150 + 105.3;
-                for (let y = 0; y < columnas; y++) {
-                    casillero = new Casillero(ctx, inicioX, finX, inicioY, finY);
-                    fila.push(casillero);
-                    inicioX = inicioX + 105.3;
-                    finX = finX + 105.3;
+            if(mode == 5){
+                let inicioTable = 150;
+                createTablero(inicioTable);
+            }else if(mode == 4){
+                let inicioTable = 255.3;
+                createTablero(inicioTable);
+            }else if(mode == 3){
+                let inicioTable = 360.6;
+                createTablero(inicioTable);
+            }
+
+            function createTablero(inicioTable) {
+                for (let x = 0; x < filas; x++) {
+                    let fila = [];
+                    let inicioX = inicioTable;
+                    let finX = inicioTable + 105.3;
+                    for (let y = 0; y < columnas; y++) {
+                        casillero = new Casillero(ctx, inicioX, finX, inicioY, finY);
+                        fila.push(casillero);
+                        inicioX = inicioX + 105.3;
+                        finX = finX + 105.3;
+                    }
+                    matriz.push(fila);
+                    inicioY = inicioY + 67;
+                    finY = finY + 67;
                 }
-                matriz.push(fila);
-                inicioY = inicioY + 67;
-                finY = finY + 67;
             }
 
             console.log(matriz);
@@ -165,52 +182,7 @@ function playActive() {
 
             let local = true;
 
-            tiempoDePartida();
-
-            timepoDelJugador();
-
-            function timepoDelJugador() {
-                    setInterval(() => {
-                    if(cronometroPartida < 5){
-                        if(cronometroJugador < 15){
-                            if(cronometroJugador == 0 && local === true){
-                                local = false;
-                                let color = 'red';
-                                let x = 75;
-                                let imgFicha = fichaRiver;
-                                drawFicha("River", x, color, imgFicha);   
-                            }else if (cronometroJugador == 0 && local === false){
-                                local = true;
-                                let color = 'blue';
-                                let x = 1278;
-                                let imgFicha = fichaBoca;
-                                drawFicha("Boca", x, color, imgFicha); 
-                            }
-                            cronometroJugador++;
-                        }else{
-                            fichasEnPartida.pop();
-                            cronometroJugador = 0;
-                        }
-
-                        
-                    }
-                }, 1000);
-            }
-
-            function tiempoDePartida() {
-                let tiempoPartida = setInterval(() => {
-                    if(cronometroPartida < 5){
-                        cronometroPartida = cronometroPartida + 1;
-                        console.log(cronometroPartida);
-                        if(cronometroPartida == 5) {
-                            console.log(cronometroPartida);
-                        }
-                    }else{
-                        clearInterval(tiempoPartida);
-                    }
-                }, 60000);
-
-            }
+        
 
             function drawFicha(name, x, color, img){
                 ficha = new Circle(name, x, 335, 25, color ,ctx, img);
@@ -318,7 +290,7 @@ function playActive() {
 
                 if(encontrado === true) {
                     cronometroPartida = 5;
-                    console.log(cronometroPartida);
+                    timeGame.innerHTML = `Partida Terminada: ${cronometroPartida}`;
                 }else{
                     cronometroJugador = 0;
                 }

@@ -1287,7 +1287,7 @@ h3{
   border-color: #078A07;
   color: #fff;
   box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
-  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
 
@@ -1327,7 +1327,7 @@ h3{
   border-color: #078A07;
   color: #fff;
   box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
-  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
 
@@ -1349,7 +1349,7 @@ h3{
   border-color: #078A07;
   color: #fff;
   box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
-  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
 }
 
@@ -1430,10 +1430,51 @@ h3{
   position: absolute;
   top: 0;
   left: 0;
+  width: 100%;
 }
 
 .myCanvas.active {
   z-index: 2;
+}
+
+.timeGame {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 67px;
+  background-color: #00AAE4;
+  color: #000000;
+  border-bottom-right-radius: 25px;
+  display: none;
+  Font-family: Consolas, monaco, monospace;
+}
+
+.timeGame.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeTurn {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 67px;
+  background-color: #00AAE4;
+  color: #000000;
+  border-bottom-left-radius: 25px;
+  display: none;
+  Font-family: Consolas, monaco, monospace;
+}
+
+.timeTurn.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1370px) {
