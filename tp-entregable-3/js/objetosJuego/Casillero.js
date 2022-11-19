@@ -12,7 +12,7 @@ class Casillero {
         this.imgCasillero = new Image();
         this.imgCasillero.src = "/tp-entregable-2/assets/img/copaArgentinaCasillero.png";
     }
-
+    //Metodo para dibujar el casillero.
     draw() {
         this.ctx.fillStyle = "#B2FFFF";
         this.ctx.fillRect(this.inicioX, this.inicioY, 105.3, 67);
@@ -24,34 +24,34 @@ class Casillero {
         this.ctx.fill();
         this.ctx.closePath();
     }
-
+    //Metodo para obtener el inicio en el eje X.
     getInicioX() {
         return this.inicioX;
     }
-
+    //Metodo para obtener el inicio en el eje Y.
     getInicioY() {
         return this.inicioY;
     }
-
+    //Metodo para obtener el fin en el eje X.
     getFinX() {
         return this.finX;
     }
-
+    //Metodo para obtener el fin en el eje Y.
     getFinY() {
         return this.finY;
     }
-
+    //Metodo para setear su ocupacion, agregar el objeto y guardar su imagen.
     setOcupado(obj) {
         this.ocupado = true;
         this.obj = obj;
         this.imgFicha = this.obj.getImg();
     }
-
+    //Metodo para eliminar el objeto que lo esta ocupando.
     deleteOcupado() {
         this.ocupado = false;
         this.obj = null;
     }
-
+    //Metodo para dibujar el objeto ficha que fue dejada dentro de las posiciones de este casillero.
     drawObj() {
         if(this.ocupado == true) {
             this.ctx.beginPath();
@@ -65,7 +65,7 @@ class Casillero {
             this.ctx.drawImage(this.imgOcupacion, this.inicioX +52.65-15, this.inicioY +33.5-15);
         }
     }
-
+    //Metodo para obtener el objeto que contiene el casillero.
     getObj() {
         return this.obj;
     }
