@@ -367,7 +367,6 @@ color: #FFFFFF;
   pointer-events: all;
   position: relative;
   overflow: hidden;
-  z-index: 1;
   transition: color 150ms ease-in-out;
 }
 
@@ -942,6 +941,10 @@ footer ul li{
   color: #F7F7F7;
 }
 
+.play-game.desactive {
+  display: none;
+}
+
 .img-game{
   display: flex;
   justify-content: center;
@@ -1144,6 +1147,483 @@ h3{
 
 .share-button:active{
   background-color: #8070D7;
+}
+
+.loadingGame{
+  display: none;
+}
+
+.loadingGame.active{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #5C4BC9;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.loader{
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.loader.active {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+  height: 100px;
+  opacity: 1;
+}
+
+.loader.active div {
+  width: 20px;
+  background: #888;
+  animation: loader 1s linear infinite;
+}
+
+.loader.active div:nth-child(2) {
+  animation-delay: -0.25s;
+}
+
+.game-intro {
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 3s ease-in;
+  z-index: -1;
+  height: 670px;
+}
+
+.game-intro.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.pressKey {
+  display: none;
+  z-index: -1;
+}
+
+.pressKey.active {
+  position: absolute;
+  display: block;
+  top: 92%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  color: #fff;
+  Font-family: Consolas, monaco, monospace;
+}
+
+@keyframes loader {
+  0% {
+      height: 20px;
+  }
+
+  25% {
+      height: 70px;
+  }
+
+  50% {
+      height: 30px;
+  }
+
+  75% {
+      height: 50px;
+  }
+
+  100% {
+      height: 20px;
+  }
+}
+
+.porcentaje {
+  display: none;
+  z-index: -1;
+}
+
+.porcentaje.active {
+  display: block;
+  Font-family: Consolas, monaco, monospace;
+  z-index: 1;
+}
+
+.game-menu {
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 670px;
+  transition: opacity .2s ease; 
+}
+
+.game-menu.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.buttonsGame {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.buttonsGame > button {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border-color: #078A07;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
+  transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.buttonsGame > button:hover {
+  box-shadow: 0 0 10px 0 #13AC13 inset, 0 0 10px 4px #13AC13;
+  color: #000000;
+}
+
+.buttonsGame.desactive {
+  display: none;
+}
+
+.fichasEleccion {
+  position: absolute;
+  top: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.opcion {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 90%;
+}
+
+.fichasEleccion > .opcion > img {
+  width: 12%;
+}
+
+.fichasEleccion > .opcion > button {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border-color: #078A07;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
+  transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.fichasEleccion > .opcion > button:hover {
+  box-shadow: 0 0 10px 0 #13AC13 inset, 0 0 10px 4px #13AC13;
+  color: #000000;
+}
+
+.fichasEleccion > .buttonBack {
+  display: flex;
+  justify-content: center;
+  height: 10%;
+}
+
+.fichasEleccion > .buttonBack > button {
+  width: 200px;
+  height: 50px;
+  border-radius: 20px;
+  border-color: #078A07;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
+  transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.fichasEleccion > .buttonBack > button:hover {
+  box-shadow: 0 0 10px 0 #13AC13 inset, 0 0 10px 4px #13AC13;
+  color: #000000;
+}
+
+.fichasEleccion.desactive {
+  display: none;
+}
+
+.instrucciones {
+  position: absolute;
+  top: 0;
+  left: 31.5%;
+  width: 500px;
+  height: 100%;
+  background-color: #00AAE4;
+  border-radius: 25px;
+
+}
+
+.instrucciones > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.instrucciones > div > button  {
+  background: #fff;
+  color: #078A07;
+  border: 2px solid #078A07;
+  padding: 16px 20px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.instrucciones > div > button:hover {
+  color: #fff;
+}
+
+.instrucciones > div > button::after {
+  content: "";
+  background: #078A07;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.instrucciones > div > button:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.instrucciones.desactive {
+  display: none;
+}
+
+.myCanvas {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.myCanvas.active {
+  z-index: 2;
+}
+
+.timeGame {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 40px;
+  background-color: #00AAE4;
+  color: #000000;
+  border-bottom-right-radius: 25px;
+  display: none;
+  Font-family: Consolas, monaco, monospace;
+}
+
+.timeGame.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeTurn {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 30px;
+  background-color: #00AAE4;
+  color: #000000;
+  border-bottom-left-radius: 25px;
+  display: none;
+  Font-family: Consolas, monaco, monospace;
+}
+
+.timeTurn.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.opcionInGame {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: none;
+  background-color: #00AAE4;
+  border-top-left-radius: 25px;
+  height: 150px;
+  width: 150px;
+  z-index: 2;
+}
+
+.opcionInGame.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.opcionInGame > button  {
+  background: #fff;
+  color: #078A07;
+  border: 2px solid #078A07;
+  padding: 16px 20px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.opcionInGame > button:hover {
+  color: #fff;
+}
+
+.opcionInGame > button::after {
+  content: "";
+  background: #078A07;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.opcionInGame > button:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.winner {
+  position: absolute;
+  top: 37.5%;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #00AAE4;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.winner.active {
+  z-index: 2;
+  opacity: 1;
+}
+
+.winner > h1 {
+  color: #078A07;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: 50px;
+}
+
+.winner > button  {
+  background: #fff;
+  color: #078A07;
+  border: 2px solid #078A07;
+  padding: 16px 20px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.winner > button:hover {
+  color: #fff;
+}
+
+.winner > button::after {
+  content: "";
+  background: #078A07;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.winner > button:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.time {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: #00AAE4;
+  border-top-left-radius: 25px;
+  height: 67px;
+  width: 150px;
+  z-index: 2;
+  Font-family: Consolas, monaco, monospace;
+}
+
+.time.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media only screen and (max-width: 1370px) {

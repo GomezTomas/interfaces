@@ -54,15 +54,67 @@
 
     <section class="img-game">
       <div class="position-relative">
-        <img src="assets/img/cuatro_en_linea_game.png" alt="Juego cuatro en linea">
-        <div class="play-game">
+        <img class="imgGame" src="assets/img/cuatro_en_linea_game.png" alt="Juego cuatro en linea">
+        <div class="play-game" id="play-game">
           <h2>Jugar ahora!</h2>
-          <button class="buttonPlay">Jugar</button>
+          <button class="buttonPlay" id="playGame">Jugar</button>
         </div>
-        <!-- <div class="play-game">
-          <p>Juga ahora mismo!</p>
-        </div> -->
-      </div>
+        <div class="loadingGame" id="loading">
+          <div class="loader" id="loader">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <h1 class="porcentaje" id="porcentaje"></h1>
+        </div>
+        <div class="game-intro" id="gameIntro">
+          <img src="assets/img/Logo juego.png" alt="4 en linea superclasico">
+        </div>
+        <div class="pressKey" id="pressKey">
+          <h2>Presione culaquier tecla para jugar!</h2>
+        </div>
+        <section class="game-menu" id="game-menu">
+          <img src="/tp-entregable-2/assets/img/canchaFutbol.png" alt="Fondo Menu">
+          <div class="buttonsGame" id="buttonsGame">
+            <button id="mode5">Jugar 5 en linea</button>
+            <button id="mode4">Jugar 4 en linea</button>
+            <button id="mode3">Jugar 3 en linea</button>
+            <button id="help">Instrucciones</button>
+          </div>
+          <div class="fichasEleccion" id="fichasEleccion">
+            <div class="opcion">
+              <img src="/tp-entregable-2/assets/img/riverEleccion.png" alt="Escudo de River Plate"> <img src="/tp-entregable-2/assets/img/bocaEleccion.png" alt="Escudo de Boca Juniors">
+              <button id="buttonOpcionA">Opcion A</button>
+              <button id="buttonOpcionB">Opcion B</button>
+              <img src="/tp-entregable-2/assets/img/RiverEleccion2.png" alt="Escudo alternativo de River Plate"> <img src="/tp-entregable-2/assets/img/BocaEleccion2.png" alt="Escudo alternativo de Boca Juniors">
+            </div>
+            <div class="buttonBack">
+              <button id="back">Volver</button>
+            </div>
+          </div>
+          <div class="instrucciones" id="instrucciones">
+            <div>
+              <h2>Como jugar</h2>
+              <p>Elegir con que fichas van a jugar. Tendran un tiempo maximo de 5 minutos en total y cada jugador va a tener su turno con un timepo de 15 segundos.
+                Objetivo hacer una linea de N tamaño(depende del modo elegido) sea de manera horizontal, vertical o diagonal. Para poder formar la linea hagan click sobre su ficha, arrastrela y sueltela donde desea ubicarla.
+              </p>
+              <img src="/tp-entregable-2/assets/img/mouseGif.gif" alt="">
+              <button id="closeHelp">Cerrar</button>
+            </div>
+          </div>
+        </section>
+        <div class="timeGame" id="timeGame"></div>
+        <canvas class="myCanvas" id="myCanvas" width="1353" height="670"></canvas>
+        <div class="timeTurn" id="timeTurn"></div>
+        <div class="opcionInGame" id="opcionInGame">
+          <button id="reload">Reiniciar</button>
+          <button id="exit">Salir</button>
+        </div>
+        <div class="time" id="time">A la partida le quedan: 5 - Minutos</div>
+        <div class="winner" id="winner">
+          <h1 id="winnerTitle"></h1>
+          <button id="exitEndGame">Salir</button>
+        </div>
     </section>
 
     <section class="container">
@@ -176,5 +228,9 @@
     </div>
   </footer>
   <script src="js/menu.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/objetosJuego/Casillero.js"></script>
+  <script src="js/objetosJuego/Circle.js"></script>
+  <script src="js/objetosJuego/Tiempo.js"></script>
 </body>
 </html>
