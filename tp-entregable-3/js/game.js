@@ -98,15 +98,15 @@ function playActive() {
             let buttonopcionB = document.getElementById("buttonOpcionB");
 
             buttonopcionA.addEventListener("click", () => {
-                let imgFichaRiver = "/tp-entregable-2/assets/img/riverFicha.png";
-                let imgFichaBoca = "/tp-entregable-2/assets/img/fichaBoca.png";
+                let imgFichaRiver = "/tp-entregable-3/assets/img/riverFicha.png";
+                let imgFichaBoca = "/tp-entregable-3/assets/img/fichaBoca.png";
 
                 play(imgFichaRiver, imgFichaBoca, mode);
             });
 
             buttonopcionB.addEventListener("click", () => {
-                let imgFichaRiver = "/tp-entregable-2/assets/img/fichaRiver2.png";
-                let imgFichaBoca = "/tp-entregable-2/assets/img/fichaBoca2.png";
+                let imgFichaRiver = "/tp-entregable-3/assets/img/fichaRiver2.png";
+                let imgFichaBoca = "/tp-entregable-3/assets/img/fichaBoca2.png";
 
                 play(imgFichaRiver, imgFichaBoca, mode);
             });
