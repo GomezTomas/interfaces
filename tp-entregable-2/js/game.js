@@ -87,7 +87,7 @@ function playActive() {
 
         closeHelp.addEventListener("click", () => {
             toggle2(buttonsGame, instrucciones);
-        })
+        });
 
 
         function elegirEscudos(mode) {
@@ -125,6 +125,8 @@ function playActive() {
             timeGame.classList.toggle("active");
             let timeTurn = document.getElementById("timeTurn");
             timeTurn.classList.toggle("active");
+            let opcionInGame = document.getElementById("opcionInGame");
+            opcionInGame.classList.toggle("active");
             fichasEleccion.classList.toggle("desactive");
             gameMenu.classList.toggle("active");
 
@@ -140,20 +142,46 @@ function playActive() {
             let matriz = [];
             let cronometroJugador = 0;
             let cronometroPartida = 0;
+            let local = true;
+            let winner = document.getElementById("winner");
+            let exitEnGame = document.getElementById("exitEndGame");
+
+            let reload = document.getElementById("reload");
+            reload.addEventListener("click", () => {
+                cronometroPartida = 0;
+                cronometroJugador = 0;
+                local = true;
+                for (let i = 0; i < fichasEnPartida.length; i++) {
+                    fichasEnPartida.pop();
+                }
+                for (let i = 0; i < matriz.length; i++) {
+                    for (let j = 0; j < matriz[i].length; j++) {
+                        matriz[i][j].deleteOcupado();
+                    }
+                }
+                clearCanvas();
+            });
+
+            function tableModeCreate() {
+
+                if(mode == 5){
+                    let inicioTable = 150;
+                    createTablero(inicioTable);
+                }else if(mode == 4){
+                    let inicioTable = 255.3;
+                    createTablero(inicioTable);
+                }else if(mode == 3){
+                    let inicioTable = 360.6;
+                    createTablero(inicioTable);
+                }
+
+            }
 
             let inicioY = 0;
             let finY = 67;
 
-            if(mode == 5){
-                let inicioTable = 150;
-                createTablero(inicioTable);
-            }else if(mode == 4){
-                let inicioTable = 255.3;
-                createTablero(inicioTable);
-            }else if(mode == 3){
-                let inicioTable = 360.6;
-                createTablero(inicioTable);
-            }
+            tableModeCreate();
+
 
             function createTablero(inicioTable) {
                 for (let x = 0; x < filas; x++) {
@@ -180,9 +208,49 @@ function playActive() {
                 }
             }
 
-            let local = true;
+            let time = document.getElementById("time");
+            time.classList.toggle("active")
 
-        
+            timepoPartida = new Tiempo(cronometroPartida, time);
+
+            timepoPartida.startCronometro();
+
+            let exit = document.getElementById("exit");
+            exit.addEventListener("click", () => {
+                location.reload();
+            });
+
+            timeTurnInterval();
+
+            function timeTurnInterval() {
+
+                let intervalTurn = setInterval(() => {
+                    if(cronometroJugador <= 14 && timepoPartida.getCronometro() < 5) {
+                        if(cronometroJugador === 0 && local === true) {
+                            local = false;
+                            let color = 'red';
+                            let x = 75;
+                            let imgFicha = fichaRiver;
+                            drawFicha("River", x, color, imgFicha);
+                            timeTurn.innerHTML = `Turno de River`;
+                        }else if(cronometroJugador === 0 && local === false){
+                            local = true;
+                            let color = 'blue';
+                            let x = 1278;
+                            let imgFicha = fichaBoca;
+                            drawFicha("Boca", x, color, imgFicha);
+                            timeTurn.innerHTML = `Turno de Boca`;
+                        }
+                        timeGame.innerHTML = `Tiempo turno:${cronometroJugador}`;
+                        cronometroJugador++;
+                    }else if(cronometroJugador == 15 && timepoPartida.getCronometro() < 5) {
+                        fichasEnPartida.pop();
+                        cronometroJugador = 0;
+                    }else {
+                        clearInterval(intervalTurn);
+                    }
+                }, 900);
+            }
 
             function drawFicha(name, x, color, img){
                 ficha = new Circle(name, x, 335, 25, color ,ctx, img);
@@ -245,11 +313,13 @@ function playActive() {
             canvas.addEventListener("mouseup", onMouseUp, false);
 
             function onMouseUp (e) {
+                let aux = null;
                 isMouseDown = false;
                 
                 for (let i = 0; i < matriz.length; i++) {
                     for (let j = 0; j < matriz[i].length; j++) {
                         if(lastClickedFigure != null) {
+                        aux = lastClickedFigure;
                         if(((lastClickedFigure.getPosX() > matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < matriz[i][j].getFinX()))
                         && ((lastClickedFigure.getPosY() > matriz[i][j].getInicioY()) && (lastClickedFigure.getPosY() < matriz[i][j].getFinY()))) {
                             matriz[i][j].setOcupado(lastClickedFigure);
@@ -261,14 +331,14 @@ function playActive() {
                                 actualizar();
                             }, 100);
 
-                            busquedaLinea();
+                            busquedaLinea(aux);
                         }
                         }
                     }
                 }
             }
 
-            function busquedaLinea() {
+            function busquedaLinea(obj) {
                 let encontrado = false;
 
                 if(encontrado === false) {
@@ -289,8 +359,15 @@ function playActive() {
 
 
                 if(encontrado === true) {
-                    cronometroPartida = 5;
-                    timeGame.innerHTML = `Partida Terminada: ${cronometroPartida}`;
+                    console.log(obj);
+                    timepoPartida.stopCronometro();
+                    timeGame.innerHTML = `Partida Terminada`;
+                    document.getElementById("winnerTitle").innerHTML = `El ganador de la partida es ${obj.getName()}`
+                    winner.classList.toggle("active");
+                    opcionInGame.classList.toggle("active");
+                    exitEnGame.addEventListener("click", () => {
+                        location.reload();
+                    })
                 }else{
                     cronometroJugador = 0;
                 }

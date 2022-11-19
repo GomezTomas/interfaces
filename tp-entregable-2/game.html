@@ -103,9 +103,18 @@
             </div>
           </div>
         </section>
-        <div class="timeGame" id="timeGame">Tiempo de partida</div>
+        <div class="timeGame" id="timeGame"></div>
         <canvas class="myCanvas" id="myCanvas" width="1353" height="670"></canvas>
-        <div class="timeTurn" id="timeTurn">Tiempo del turno: </div>
+        <div class="timeTurn" id="timeTurn"></div>
+        <div class="opcionInGame" id="opcionInGame">
+          <button id="reload">Reiniciar</button>
+          <button id="exit">Salir</button>
+        </div>
+        <div class="time" id="time">A la partida le quedan: 5 - Minutos</div>
+        <div class="winner" id="winner">
+          <h1 id="winnerTitle"></h1>
+          <button id="exitEndGame">Salir</button>
+        </div>
     </section>
 
     <section class="container">
@@ -222,6 +231,6 @@
   <script src="js/game.js"></script>
   <script src="js/objetosJuego/Casillero.js"></script>
   <script src="js/objetosJuego/Circle.js"></script>
-  <script src="js/objetosJuego/TiempoJugador.js"></script>
+  <script src="js/objetosJuego/Tiempo.js"></script>
 </body>
 </html>

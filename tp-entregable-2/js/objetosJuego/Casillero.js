@@ -47,6 +47,11 @@ class Casillero {
         this.imgFicha = this.obj.getImg();
     }
 
+    deleteOcupado() {
+        this.ocupado = false;
+        this.obj = null;
+    }
+
     drawObj() {
         if(this.ocupado == true) {
             this.ctx.beginPath();

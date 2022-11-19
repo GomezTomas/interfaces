@@ -1289,6 +1289,7 @@ h3{
   box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
   transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 .buttonsGame > button:hover {
@@ -1329,6 +1330,7 @@ h3{
   box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
   transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 .fichasEleccion > .opcion > button:hover {
@@ -1351,6 +1353,7 @@ h3{
   box-shadow: 0 0 40px 40px #13AC13 inset, 0 0 0 0 #13AC13;
   transition: all 150ms ease-in-out;
   transition: all 150ms ease-in-out;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 .fichasEleccion > .buttonBack > button:hover {
@@ -1391,6 +1394,7 @@ h3{
   z-index: 1;
   overflow: hidden;
   display: inline-block;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
 }
 
 .instrucciones > div > button:hover {
@@ -1443,7 +1447,7 @@ h3{
   top: 0;
   left: 0;
   width: 150px;
-  height: 67px;
+  height: 40px;
   background-color: #00AAE4;
   color: #000000;
   border-bottom-right-radius: 25px;
@@ -1463,7 +1467,7 @@ h3{
   top: 0;
   right: 0;
   width: 150px;
-  height: 67px;
+  height: 30px;
   background-color: #00AAE4;
   color: #000000;
   border-bottom-left-radius: 25px;
@@ -1474,6 +1478,151 @@ h3{
 .timeTurn.active {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.opcionInGame {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: none;
+  background-color: #00AAE4;
+  border-top-left-radius: 25px;
+  height: 150px;
+  width: 150px;
+  z-index: 2;
+}
+
+.opcionInGame.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.opcionInGame > button  {
+  background: #fff;
+  color: #078A07;
+  border: 2px solid #078A07;
+  padding: 16px 20px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+.opcionInGame > button:hover {
+  color: #fff;
+}
+
+.opcionInGame > button::after {
+  content: "";
+  background: #078A07;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.opcionInGame > button:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.winner {
+  position: absolute;
+  top: 37.5%;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #00AAE4;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+}
+
+.winner.active {
+  z-index: 2;
+  opacity: 1;
+}
+
+.winner > h1 {
+  color: #078A07;
+  Font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: 50px;
+}
+
+.winner > button  {
+  background: #fff;
+  color: #078A07;
+  border: 2px solid #078A07;
+  padding: 16px 20px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.winner > button:hover {
+  color: #fff;
+}
+
+.winner > button::after {
+  content: "";
+  background: #078A07;
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  right: 100%;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.winner > button:hover::after {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.time {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background-color: #00AAE4;
+  border-top-left-radius: 25px;
+  height: 67px;
+  width: 150px;
+  z-index: 2;
+  Font-family: Consolas, monaco, monospace;
+}
+
+.time.active {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
