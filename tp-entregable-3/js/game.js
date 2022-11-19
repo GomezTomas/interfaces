@@ -1,5 +1,6 @@
 let juegoActivo = false;
 
+// Evento para el comienzo del juego, el cual abre un div con una animacion de loading y un porcentaje que se va a ir cargando.
 let play = document.getElementById("playGame").addEventListener("click", () => {
     setTimeout(() =>{
         let loading = document.getElementById("loading");
@@ -35,7 +36,7 @@ let play = document.getElementById("playGame").addEventListener("click", () => {
 });
 
 
-
+// Le damos al windows un evento keyprees para inicializar el juego. El juego mostrara una imagen con el titulo con el aviso de apretar cualquier tecla abajo. 
 window.addEventListener("keypress", playActive);
 
 function playActive() {
@@ -48,6 +49,9 @@ function playActive() {
             window.removeEventListener("keypress", playActive);
         }, 200);
 
+        //En este evento tendra un menu con una imagen la cual se mantendra como fondo, mientras se intercalan los distintos elementos del html.
+        //tendremos los botones del inicio los cuales vendran por defecto con el menu y luego los esconderemos.
+        //Las fichas que podemos elegir para poder jugar cuando decidamos que modo queremos jugar.
         let gameMenu = document.getElementById("game-menu");
         let fichasEleccion = document.getElementById("fichasEleccion");
         let instrucciones = document.getElementById("instrucciones");
@@ -64,6 +68,7 @@ function playActive() {
         let back = document.getElementById("back");
         let closeHelp = document.getElementById("closeHelp");
 
+        //Dependiendo al boton que apretemos eligiremos el modo a jugar, y este se mandara por parametro al juego. Ya que dependiendo de esto, se vera el tamaño del tablero, la cantidad de casilleros y el tamaño de la linea a completar.
         buttonMode5.addEventListener("click", () => {
             let mode = 5;
             elegirEscudos(mode);
@@ -116,7 +121,8 @@ function playActive() {
             toggle1.classList.toggle("desactive");
             toggle2.classList.toggle("desactive");
         }
-
+        //En esta funcion se iniciara el juego. El juego esta conformado por 3 objetos principales que son: Las fichas, Los casilleros(Conforman el tablero), y El tiempo a jugar.
+        //En esta funcion unimeros con logica los 3 objetos recien mencionados. 
         function play(fichaRiver, fichaBoca, mode) {
 
             let canvas = document.getElementById("myCanvas");
@@ -129,7 +135,7 @@ function playActive() {
             opcionInGame.classList.toggle("active");
             fichasEleccion.classList.toggle("desactive");
             gameMenu.classList.toggle("active");
-
+            //Utilizamos un array donde van a estar las fichas creadas, y una matriz la cual va a contener todos los casilleros del tablero.
             /** @type {CanvasRenderingContext2D} */
             let ctx = canvas.getContext("2d");
             let canvasWidth = canvas.width;
@@ -146,6 +152,7 @@ function playActive() {
             let winner = document.getElementById("winner");
             let exitEnGame = document.getElementById("exitEndGame");
 
+            //Le damos un evento al boton de reiniciar asi podemos limpiar y empezar la partida en cualquier momento.
             let reload = document.getElementById("reload");
             reload.addEventListener("click", () => {
                 cronometroPartida = 0;
@@ -162,6 +169,7 @@ function playActive() {
                 clearCanvas();
             });
 
+            //Creamos el tablero de acuerdo al modo que hayamos elegido.
             function tableModeCreate() {
 
                 if(mode == 5){
@@ -201,25 +209,32 @@ function playActive() {
             }
 
             console.log(matriz);
-
+            //Dibujamos el tablero.
             for (let i = 0; i < matriz.length; i++) {
                 for (let j = 0; j < matriz[i].length; j++) {
                     matriz[i][j].draw();
                 }
             }
 
+            //Seleccionamos del DOM el lugar que queremos para insertar cuanto tiempo nos queda de partida.
             let time = document.getElementById("time");
             time.classList.toggle("active")
 
+            //Iniciamos el cronometro dle partido.
             timepoPartida = new Tiempo(cronometroPartida, time);
 
             timepoPartida.startCronometro();
 
+            //Si queremos salir del juego durante la partida dejamos este boton para salir y volver a iniciar el juego con otras opciones.
+            //Se quiso no hacer un reload de la pagina pero se bugueaba con la informacion anterior por lo tanto no fue factible.
             let exit = document.getElementById("exit");
             exit.addEventListener("click", () => {
                 location.reload();
             });
 
+            //En esta funcion se crearan las fichas de acuerdo al turno que toque. Cada 15 segundos las fichas no utilizadas se borraran y creara una nueva del otro jugador.
+            //La idea es que sean 15 segundos cada turno. El proble es que por su funcionamiento va a llegar a 15 y tardara un par de segundos mas de lo planeado por todas las acciones que realiza.
+            //Despued hay un BUG el cual no se encontro una solucion que aoarece muy cada tanto. El problema es que cada 15 segundos se van alternando los turnos pero aveces vuelve a dibujar la misma ficha pero en el turno del rival.
             timeTurnInterval();
 
             function timeTurnInterval() {
@@ -249,22 +264,22 @@ function playActive() {
                     }else {
                         clearInterval(intervalTurn);
                     }
-                }, 900);
+                }, 1000);
             }
-
+            //Creo la ficha y la dibujo.
             function drawFicha(name, x, color, img){
                 ficha = new Circle(name, x, 335, 25, color ,ctx, img);
                 fichasEnPartida.push(ficha);
                 actualizar();
             }
-
+            //Actualizo el canvas.
             function actualizar() {
                 clearCanvas();
                 for (let i = 0; i < fichasEnPartida.length; i++) {
                     fichasEnPartida[i].draw();
                 }
             }
-
+            //Limpio el canvas y el tablero.
             function clearCanvas() {
                 ctx.fillStyle = "green";
                 ctx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -275,7 +290,7 @@ function playActive() {
                     }
                 }
             }
-
+            //Le agrego un evento al canvas, para cuando mantenga presionado el mouse, con el objetivo de tomar una ficha, saber cual es y su ubicacion.
             canvas.addEventListener("mousedown", onMouseDown, false);
 
             function onMouseDown(e) {
@@ -300,7 +315,9 @@ function playActive() {
                     }
                 }
             }
-
+            //Acoplado a lo anterior mientras mantengo presionado el click voy a poder mover el mouse y con esto tambien a la ficha.
+            //Cada vez que muevo la ficha su ubicacion en el canvas se actualizara.
+            //Tambien actuzalizamos el canvas para que tenga un movimiento fluido y no pinte el canvas.
             canvas.addEventListener("mousemove", onMouseMove, false);
 
             function onMouseMove(e) {
@@ -310,6 +327,11 @@ function playActive() {
                 }
             }
 
+            //Aca entra el factor mas imprtante para saber si termino la partida o no.
+            //Al soltar el mouse, se consultara si la ficha fue soltada en algun objeto Casillero. Si esto es asi el Casillero tomara la opcion de estar OCUPADO y se le pintara la ficha. Al instante de suceder eso la ficha que soltamos se eliminara del canvas.
+            //Cuando se actualice el canvas y el tablero se buscara de las 4 maneras posibles si existe alguna linea en el tablero que cumpla con el modo elegido.
+            //Se busca de manera horizontal, vertical y diagonalX2.
+            //Se recorrera la matriz con todos los casilleros ordenados como tablero y se ira preguntando uno por uno si cumplen el parecido con la primera ficha encontrada. Si no cumplen este parecido se volvera a empezar la busqueda desde la siguiente posicion reseteando el contador. 
             canvas.addEventListener("mouseup", onMouseUp, false);
 
             function onMouseUp (e) {
@@ -340,7 +362,8 @@ function playActive() {
 
             function busquedaLinea(obj) {
                 let encontrado = false;
-
+                //estas busquedas se hacen siempre que el usuario suelte la ficha para poder encontrar la linea mas actual posible.
+                //Se buscara por orden de funciones y la primera que encuentre devolvera el true para terminar el juego.
                 if(encontrado === false) {
                     encontrado = busquedaPorFila();
                 }
@@ -359,6 +382,7 @@ function playActive() {
 
 
                 if(encontrado === true) {
+                    //al encontrar una linea se mostrara sobre el canvas un div con el nombre del ganador y con la opcion de salir del juego para resetear toda la informacion.
                     console.log(obj);
                     timepoPartida.stopCronometro();
                     timeGame.innerHTML = `Partida Terminada`;
