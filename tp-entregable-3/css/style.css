@@ -1166,12 +1166,12 @@ h3{
   z-index: 1;
 }
 
-.loader{
+.loaderGame{
   opacity: 0;
   transition: opacity .2s ease;
 }
 
-.loader.active {
+.loaderGame.active {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1181,13 +1181,13 @@ h3{
   opacity: 1;
 }
 
-.loader.active div {
+.loaderGame.active div {
   width: 20px;
   background: #888;
   animation: loader 1s linear infinite;
 }
 
-.loader.active div:nth-child(2) {
+.loaderGame.active div:nth-child(2) {
   animation-delay: -0.25s;
 }
 
@@ -1613,7 +1613,7 @@ h3{
   left: 0;
   display: none;
   background-color: #00AAE4;
-  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
   height: 67px;
   width: 150px;
   z-index: 2;

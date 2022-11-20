@@ -1,14 +1,13 @@
-
 const myGreeting = () => {
   const content = document.querySelector('.main-container');
   const loader = document.querySelector('.loader');
-  content.classList.remove('main-container')
-  loader.classList.add('main-container')
-  loader.classList.remove('loader')
-  console.log("loadded")
+  content.classList.remove('main-container');
+  loader.classList.add('main-container');
+  loader.classList.remove('loader');
+  console.log("loadded");
 }
 
-console.log('Loading')
+console.log('Loading');
 
 const myTimeout = setTimeout(myGreeting, 4900);
 

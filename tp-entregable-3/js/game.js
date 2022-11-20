@@ -111,7 +111,7 @@ function playActive() {
 
             buttonopcionB.addEventListener("click", () => {
                 let imgFichaRiver = "/tp-entregable-3/assets/img/fichaRiver2.png";
-                let imgFichaBoca = "/tp-entregable-3/assets/img/fichaBoca2.png";
+                let imgFichaBoca = "/tp-entregable-3/assets/img/fichaBoca.png";
 
                 play(imgFichaRiver, imgFichaBoca, mode);
             });
