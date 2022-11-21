@@ -218,12 +218,11 @@ function playActive() {
 
             //Seleccionamos del DOM el lugar que queremos para insertar cuanto tiempo nos queda de partida.
             let time = document.getElementById("time");
-            time.classList.toggle("active")
+            time.classList.toggle("active");
 
             //Iniciamos el cronometro dle partido.
-            timepoPartida = new Tiempo(cronometroPartida, time);
-
-            timepoPartida.startCronometro();
+            timepoPartida = new Tiempo(cronometroPartida, 5, 60000);
+            timePlayer = new Tiempo(cronometroJugador, 15, 1000);
 
             //Si queremos salir del juego durante la partida dejamos este boton para salir y volver a iniciar el juego con otras opciones.
             //Se quiso no hacer un reload de la pagina pero se bugueaba con la informacion anterior por lo tanto no fue factible.
@@ -239,33 +238,55 @@ function playActive() {
 
             function timeTurnInterval() {
 
-                let intervalTurn = setInterval(() => {
-                    if(cronometroJugador <= 14 && timepoPartida.getCronometro() < 5) {
-                        if(cronometroJugador === 0 && local === true) {
-                            local = false;
-                            let color = 'red';
-                            let x = 75;
-                            let imgFicha = fichaRiver;
-                            drawFicha("River", x, color, imgFicha);
-                            timeTurn.innerHTML = `Turno de River`;
-                        }else if(cronometroJugador === 0 && local === false){
-                            local = true;
-                            let color = 'blue';
-                            let x = 1278;
-                            let imgFicha = fichaBoca;
-                            drawFicha("Boca", x, color, imgFicha);
-                            timeTurn.innerHTML = `Turno de Boca`;
+                timepoPartida.startCronometro();
+                timePlayer.startCronometro();
+
+                let turnInterval = setInterval(() => {
+                    if(timepoPartida.getCronometro() < timepoPartida.getMax()){ 
+                        console.log(timePlayer.getCronometro());         
+                        if(timePlayer.getCronometro() == 1) {
+                            if(local === true) {
+                                infoFichaRiver();
+                            }else {
+                                infoFichaBoca();
+                            }
+                        }else if(timePlayer.getCronometro() == timePlayer.getMax()) {
+                            fichasEnPartida.pop();
+                            timePlayer.setCronometro();
+                            actualizar();
                         }
-                        timeGame.innerHTML = `Tiempo turno:${cronometroJugador}`;
-                        cronometroJugador++;
-                    }else if(cronometroJugador == 15 && timepoPartida.getCronometro() < 5) {
+                        timeGame.innerHTML = `Tiempo del turno: ${timePlayer.getCronometro()}`;
+                        time.innerHTML = `A la partida le quedan: ${5 - timepoPartida.getCronometro()}`;
+                    }else if(timepoPartida.getCronometro() == timepoPartida.getMax()){
+                        timepoPartida.stopCronometro();
+                        timePlayer.stopCronometro();
                         fichasEnPartida.pop();
-                        cronometroJugador = 0;
-                    }else {
-                        clearInterval(intervalTurn);
+                        time.innerHTML = `FIN DE LA PARTIDA`;
+                        clearInterval(turnInterval);
+                        actualizar();
                     }
                 }, 1000);
+
             }
+
+            function infoFichaRiver() {
+                local = false;
+                let color = 'red';
+                let x = 75;
+                let imgFicha = fichaRiver;
+                drawFicha("River", x, color, imgFicha);
+                timeTurn.innerHTML = `Turno de River`;
+            }
+
+            function infoFichaBoca() {
+                local = true;
+                let color = 'blue';
+                let x = 1278;
+                let imgFicha = fichaBoca;
+                drawFicha("Boca", x, color, imgFicha);
+                timeTurn.innerHTML = `Turno de Boca`;
+            }
+
             //Creo la ficha y la dibujo.
             function drawFicha(name, x, color, img){
                 ficha = new Circle(name, x, 335, 25, color ,ctx, img);
@@ -342,16 +363,16 @@ function playActive() {
                     for (let j = 0; j < matriz[i].length; j++) {
                         if(lastClickedFigure != null) {
                         aux = lastClickedFigure;
-                        if(((lastClickedFigure.getPosX() > matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < matriz[i][j].getFinX()))
+                        if(((lastClickedFigure.getPosX() > matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < matriz[i][j].getFinX())) 
                         && ((lastClickedFigure.getPosY() > matriz[i][j].getInicioY()) && (lastClickedFigure.getPosY() < matriz[i][j].getFinY()))) {
                             matriz[i][j].setOcupado(lastClickedFigure);
+
                             matriz[i][j].drawObj();
+                            lastClickedFigure == null;
+                            fichasEnPartida.pop();
+                            timePlayer.setCronometro();
                             
-                            setTimeout(() => {
-                                lastClickedFigure == null;
-                                fichasEnPartida.pop();
-                                actualizar();
-                            }, 100);
+                            actualizar();
 
                             busquedaLinea(aux);
                         }

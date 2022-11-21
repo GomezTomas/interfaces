@@ -1,31 +1,37 @@
 class Tiempo{
-    constructor(cronometroJugador, interact) {
+    constructor(cronometro, max, milisegundos) {
         this.intervalo = null;
-        this.cronometroJugador = cronometroJugador;
-        this.interact = interact;
+        this.cronometro = cronometro;
+        this.max = max;
+        this.milisegundos = milisegundos
     }
     //Metodo para inicar el cronometro de la partida.
     startCronometro() {
         this.intervalo = setInterval(() => {
-            if(this.cronometroJugador < 5){
-                this.cronometroJugador++;
-                this.interact.innerHTML = `A la partida le quedan: ${5 - this.cronometroJugador} - Minutos`;
-            }else {
-                clearInterval(this.intervalo);
+            if(this.cronometro < this.max){
+                this.cronometro++;
             }
-        }, 60000)
+        }, this.milisegundos);
     }
     //Metodo para detener el cronometro.
     stopCronometro() {
-        this.cronometroJugador = 5;
+        this.cronometro = this.max;
         clearInterval(this.intervalo);
     }
     //Metodo para obtener la cantidad de minutos que pasaron.
     getCronometro() {
-       return this.cronometroJugador;
+       return this.cronometro;
     }
     //Metodo para reiniciar la partida.
     setCronometro() {
-        this.cronometroJugador = 0;
+        this.cronometro = 0;
+    }
+
+    getMax() {
+        return this.max;
+    }
+
+    setMax(newMax) {
+        this.max = newMax;
     }
 }

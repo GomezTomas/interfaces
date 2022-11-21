@@ -10,7 +10,7 @@ class Casillero {
         this.imgFicha= null;
         this.imgOcupacion = null;
         this.imgCasillero = new Image();
-        this.imgCasillero.src = "/tp-entregable-3/assets/img/copaArgentinaCasillero.png";
+        this.imgCasillero.src = "assets/img/copaArgentinaCasillero.png";
     }
     //Metodo para dibujar el casillero.
     draw() {
