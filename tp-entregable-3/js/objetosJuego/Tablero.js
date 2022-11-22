@@ -1,10 +1,12 @@
 class Tablero {
+    //El Tablero recibe una matriz y el contexto del canvas.
     constructor(matriz, ctx) {
         this.matriz = matriz;
         this.ctx = ctx;
         this.casillero = null
     }
 
+    //Metodo con el que creamos el tablero y sus datos.
     create(inicioY, finY, inicioTable, filas, columnas) {
         for (let x = 0; x < filas; x++) {
             let fila = [];
@@ -22,6 +24,7 @@ class Tablero {
         }
     }
 
+    //Metodo con el que dibujamos el tablero.
     drawTable() {
         for (let i = 0; i < this.matriz.length; i++) {
             for (let j = 0; j < this.matriz[i].length; j++) {
@@ -30,10 +33,12 @@ class Tablero {
         }
     }
 
+    //Metodo con el que obtenemos la matriz.
     getMatriz() {
         return this.matriz;
     }
 
+    //Metodo donde limpiamos el tablero para cuando actualicemos el canvas.
     clearTable() {
         this.drawTable();
         for (let i = 0; i < this.matriz.length; i++) {
@@ -43,6 +48,7 @@ class Tablero {
         }
     }
 
+    //Metodo para saber si se solto alguna ficha sobre el tablero y donde se solto.
     mouseUpTable(lastClickedFigure, i, j) {
         console.log(lastClickedFigure, i, j);
         if(((lastClickedFigure.getPosX() > this.matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < this.matriz[i][j].getFinX())) 
@@ -52,6 +58,7 @@ class Tablero {
         return false;
     }
 
+    //Metodo para la busqueda de la linea de manera de fila. Se envia el modo elegido(el largo).
     searchRow(mode) {
         let contador = 0;
         let aux = "";
@@ -92,6 +99,7 @@ class Tablero {
         return false;
     }
 
+    //Metodo para la busqueda de la linea de manera de columna. Se envia el modo elegido(el largo).
     searchColumn(mode) {
         let contador = 0;
         let aux = "";
@@ -135,6 +143,8 @@ class Tablero {
         return false;
     }
 
+    //Metodo para la busqueda de la linea de manera de diagonal empezando desde la izquierda. Se envia el modo elegido(el largo).
+    //Se rrecore de izquierda a derecha por columna, pero con cada objeto de la fila se empieza a rrecorer de manera diagonal(para la derecha) desde su posicion y asi con cada uno.
     searchDiagonalLeft(mode, filas, columnas) {
         let contador = 0;
         let aux = "";
@@ -179,6 +189,8 @@ class Tablero {
         return false;
     }
 
+    //Metodo para la busqueda de la linea de manera de diagonal empezando desde la derecha. Se envia el modo elegido(el largo).
+    //Se rrecore de izquierda a derecha por columna, pero con cada objeto de la fila se empieza a rrecorer de manera diagonal(para la izquierda) desde su posicion y asi con cada uno.
     searchDiagonalRight(mode, filas, columnas) {
         let contador = 0;
         let aux = "";
@@ -223,10 +235,12 @@ class Tablero {
         return false;
     }
 
+    //Metodo para setear el ocupado del casillero.
     setOcupadoCasillero(lastClickedFigure, i, j) {
         this.matriz[i][j].setOcupado(lastClickedFigure);
     }
 
+    //Metodo para dibujar el objeto que tiene el casillero.
     casilleroDrawObj(i, j) {
         this.matriz[i][j].drawObj();
     }
