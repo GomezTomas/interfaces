@@ -197,8 +197,6 @@ function playActive() {
                 table.create(inicioY, finY, inicioTable, filas, columnas);
             }
 
-            console.log(table.getMatriz());
-
             //Dibujamos el Tablero.
             table.drawTable();
 
@@ -227,8 +225,7 @@ function playActive() {
                 timePlayer.startCronometro();
 
                 let turnInterval = setInterval(() => {
-                    if(timepoPartida.getCronometro() < timepoPartida.getMax()){ 
-                        console.log(timePlayer.getCronometro());         
+                    if(timepoPartida.getCronometro() < timepoPartida.getMax()){        
                         if(timePlayer.getCronometro() == 1) {
                             if(local === true) {
                                 infoFichaRiver();
