@@ -121,8 +121,8 @@ function playActive() {
             toggle1.classList.toggle("desactive");
             toggle2.classList.toggle("desactive");
         }
-        //En esta funcion se iniciara el juego. El juego esta conformado por 3 objetos principales que son: Las fichas, Los casilleros(Conforman el tablero), y El tiempo a jugar.
-        //En esta funcion unimeros con logica los 3 objetos recien mencionados. 
+        //En esta funcion se iniciara el juego. El juego esta conformado por 4 objetos principales que son: Las fichas, Los casilleros(Conforman el tablero),El tablero, y El tiempo a jugar.
+        //En esta funcion uniremos con logica los 4 objetos recien mencionados. 
         function play(fichaRiver, fichaBoca, mode) {
 
             let canvas = document.getElementById("myCanvas");
@@ -135,7 +135,7 @@ function playActive() {
             opcionInGame.classList.toggle("active");
             fichasEleccion.classList.toggle("desactive");
             gameMenu.classList.toggle("active");
-            //Utilizamos un array donde van a estar las fichas creadas, y una matriz la cual va a contener todos los casilleros del tablero.
+            //Utilizamos un array donde van a estar las fichas creadas, y una matriz la cual va a contener todos los casilleros. Esta matriz la utilizamos para crear el objeto Tablero.
             /** @type {CanvasRenderingContext2D} */
             let ctx = canvas.getContext("2d");
             let canvasWidth = canvas.width;
@@ -190,37 +190,23 @@ function playActive() {
 
             tableModeCreate();
 
-
+            //Creamos el objeto Tablero.
             function createTablero(inicioTable) {
-                for (let x = 0; x < filas; x++) {
-                    let fila = [];
-                    let inicioX = inicioTable;
-                    let finX = inicioTable + 105.3;
-                    for (let y = 0; y < columnas; y++) {
-                        casillero = new Casillero(ctx, inicioX, finX, inicioY, finY);
-                        fila.push(casillero);
-                        inicioX = inicioX + 105.3;
-                        finX = finX + 105.3;
-                    }
-                    matriz.push(fila);
-                    inicioY = inicioY + 67;
-                    finY = finY + 67;
-                }
+                table = new Tablero(matriz, ctx);
+
+                table.create(inicioY, finY, inicioTable, filas, columnas);
             }
 
-            console.log(matriz);
-            //Dibujamos el tablero.
-            for (let i = 0; i < matriz.length; i++) {
-                for (let j = 0; j < matriz[i].length; j++) {
-                    matriz[i][j].draw();
-                }
-            }
+            console.log(table.getMatriz());
+
+            //Dibujamos el Tablero.
+            table.drawTable();
 
             //Seleccionamos del DOM el lugar que queremos para insertar cuanto tiempo nos queda de partida.
             let time = document.getElementById("time");
             time.classList.toggle("active");
 
-            //Iniciamos el cronometro dle partido.
+            //Creamos los objetos Tiempo para la partida y los turnos.
             timepoPartida = new Tiempo(cronometroPartida, 5, 60000);
             timePlayer = new Tiempo(cronometroJugador, 15, 1000);
 
@@ -232,8 +218,7 @@ function playActive() {
             });
 
             //En esta funcion se crearan las fichas de acuerdo al turno que toque. Cada 15 segundos las fichas no utilizadas se borraran y creara una nueva del otro jugador.
-            //La idea es que sean 15 segundos cada turno. El proble es que por su funcionamiento va a llegar a 15 y tardara un par de segundos mas de lo planeado por todas las acciones que realiza.
-            //Despued hay un BUG el cual no se encontro una solucion que aoarece muy cada tanto. El problema es que cada 15 segundos se van alternando los turnos pero aveces vuelve a dibujar la misma ficha pero en el turno del rival.
+            //La idea es que sean 15 segundos cada turno.
             timeTurnInterval();
 
             function timeTurnInterval() {
@@ -269,6 +254,7 @@ function playActive() {
 
             }
 
+            //Creamos la ficha de river.
             function infoFichaRiver() {
                 local = false;
                 let color = 'red';
@@ -278,6 +264,7 @@ function playActive() {
                 timeTurn.innerHTML = `Turno de River`;
             }
 
+            //Creamos la ficha de boca.
             function infoFichaBoca() {
                 local = true;
                 let color = 'blue';
@@ -300,17 +287,15 @@ function playActive() {
                     fichasEnPartida[i].draw();
                 }
             }
+
             //Limpio el canvas y el tablero.
             function clearCanvas() {
                 ctx.fillStyle = "green";
                 ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-                for (let i = 0; i < matriz.length; i++) {
-                    for (let j = 0; j < matriz[i].length; j++) {
-                        matriz[i][j].draw();
-                        matriz[i][j].drawObj();
-                    }
-                }
+                //Limpio el objeto Tablero.
+                table.clearTable();
             }
+
             //Le agrego un evento al canvas, para cuando mantenga presionado el mouse, con el objetivo de tomar una ficha, saber cual es y su ubicacion.
             canvas.addEventListener("mousedown", onMouseDown, false);
 
@@ -328,6 +313,7 @@ function playActive() {
                 actualizar();
             }
 
+            //Nos devuelve la ubicacion de la ficha.
             function findClickedFigure(x, y) {
                 for (let i = 0; i < fichasEnPartida.length; i++) {
                     const element = fichasEnPartida[i];
@@ -336,23 +322,25 @@ function playActive() {
                     }
                 }
             }
+
             //Acoplado a lo anterior mientras mantengo presionado el click voy a poder mover el mouse y con esto tambien a la ficha.
             //Cada vez que muevo la ficha su ubicacion en el canvas se actualizara.
-            //Tambien actuzalizamos el canvas para que tenga un movimiento fluido y no pinte el canvas.
+            //Tambien actuzalizamos el canvas para que tenga un movimiento fluido y no lo pinte.
             canvas.addEventListener("mousemove", onMouseMove, false);
 
             function onMouseMove(e) {
                 if(isMouseDown && lastClickedFigure != null){
+                    //Seteamos la vieja posicion de la ficha por una nueva.
                     lastClickedFigure.setPosition(e.layerX, e.layerY);
                     actualizar();
                 }
             }
 
             //Aca entra el factor mas imprtante para saber si termino la partida o no.
-            //Al soltar el mouse, se consultara si la ficha fue soltada en algun objeto Casillero. Si esto es asi el Casillero tomara la opcion de estar OCUPADO y se le pintara la ficha. Al instante de suceder eso la ficha que soltamos se eliminara del canvas.
-            //Cuando se actualice el canvas y el tablero se buscara de las 4 maneras posibles si existe alguna linea en el tablero que cumpla con el modo elegido.
+            //Al soltar el mouse se consultara si la ficha fue soltada en algun objeto Casillero. Si esto es asi el Casillero tomara la opcion de estar OCUPADO y se le pintara la ficha. Al instante de suceder eso la ficha que soltamos se eliminara del canvas.
+            //Cuando se actualice el canvas y el tablero se buscara de las 4 maneras posibles si existe alguna linea que cumpla con el modo elegido.
             //Se busca de manera horizontal, vertical y diagonalX2.
-            //Se recorrera la matriz con todos los casilleros ordenados como tablero y se ira preguntando uno por uno si cumplen el parecido con la primera ficha encontrada. Si no cumplen este parecido se volvera a empezar la busqueda desde la siguiente posicion reseteando el contador. 
+            //Por un metodo del Tablero se recorrera su matriz con los objetos y se buscara la secuencia indicada de acuerdo al tipo de busqueda.
             canvas.addEventListener("mouseup", onMouseUp, false);
 
             function onMouseUp (e) {
@@ -363,46 +351,28 @@ function playActive() {
                     for (let j = 0; j < matriz[i].length; j++) {
                         if(lastClickedFigure != null) {
                         aux = lastClickedFigure;
-                        if(((lastClickedFigure.getPosX() > matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < matriz[i][j].getFinX())) 
-                        && ((lastClickedFigure.getPosY() > matriz[i][j].getInicioY()) && (lastClickedFigure.getPosY() < matriz[i][j].getFinY()))) {
-                            matriz[i][j].setOcupado(lastClickedFigure);
+                            //Se le consultara al Tablero si la ficha fue soltada sobre este y en cual casillero.
+                            if(table.mouseUpTable(lastClickedFigure, i, j)) {
+                                //Seteo el objeto de mi tablero y su ocupacion.
+                                table.setOcupadoCasillero(lastClickedFigure, i, j);
+                                //Dibujo el objeto que contiene el casillero.
+                                table.casilleroDrawObj(i, j);
 
-                            matriz[i][j].drawObj();
-                            lastClickedFigure == null;
-                            fichasEnPartida.pop();
-                            timePlayer.setCronometro();
+                                lastClickedFigure == null;
+                                fichasEnPartida.pop();    
                             
-                            actualizar();
+                                actualizar();
 
-                            busquedaLinea(aux);
-                        }
+                                busquedaLinea(aux);
+                            }
                         }
                     }
                 }
             }
 
             function busquedaLinea(obj) {
-                let encontrado = false;
-                //estas busquedas se hacen siempre que el usuario suelte la ficha para poder encontrar la linea mas actual posible.
-                //Se buscara por orden de funciones y la primera que encuentre devolvera el true para terminar el juego.
-                if(encontrado === false) {
-                    encontrado = busquedaPorFila();
-                }
-
-                if(encontrado === false) {
-                    encontrado = busquedaPorColumna();
-                }
-
-                if(encontrado === false) {
-                    encontrado = busquedaPorDiagonalIzquierda();
-                }
-
-                if(encontrado === false) {
-                    encontrado = busquedaPorDiagonalDerecha();
-                }
-
-
-                if(encontrado === true) {
+                //Cada tipo de busqueda devolvera un booleano. El primero que devuelva true accedera al if.
+                if(table.searchRow(mode) || table.searchColumn(mode) || table.searchDiagonalLeft(mode, filas, columnas) || table.searchDiagonalRight(mode, filas, columnas)) {
                     //al encontrar una linea se mostrara sobre el canvas un div con el nombre del ganador y con la opcion de salir del juego para resetear toda la informacion.
                     console.log(obj);
                     timepoPartida.stopCronometro();
@@ -412,182 +382,9 @@ function playActive() {
                     opcionInGame.classList.toggle("active");
                     exitEnGame.addEventListener("click", () => {
                         location.reload();
-                    })
-                }else{
-                    cronometroJugador = 0;
+                    });
                 }
-                
-            }
-
-            function busquedaPorFila() {
-                let contador = 0;
-                let aux = "";
-
-                for (let i = 0; i < matriz.length; i++) {
-                    for (let j = 0; j < matriz[i].length; j++) {
-                        if(contador < mode){
-                            if(matriz[i][j].getObj() != null) {
-                                if(contador == 0) {
-                                    aux = matriz[i][j].getObj().getName();
-                                    contador++;
-                                }else if(contador > 0) {
-                                    if(matriz[i][j].getObj().getName() == aux) {
-                                        contador++;
-                                    }else {
-                                        contador = 1;
-                                        aux = matriz[i][j].getObj().getName();
-                                    }
-                                }
-                            }else {
-                                if(matriz[i][j].getObj() == null) {
-                                    contador = 0;
-                                    aux = "";
-                                }
-                            }
-                        }else {
-                            return true;
-                        }
-                    }
-                    if(contador == mode) {
-                        return true;
-                    }else{
-                        contador = 0;
-                        axu = "";
-                    }
-                    
-                }
-                return false;
-            }
-
-            function busquedaPorColumna() {
-                let contador = 0;
-                let aux = "";
-
-                let columna = 0;
-                let fila = 0;
-
-                while(columna < mode*2) {
-                    while(fila < mode*2) {
-                        if(contador < mode) {
-                            if(matriz[fila][columna].getObj() != null) {
-                                if(contador == 0) {
-                                    aux = matriz[fila][columna].getObj().getName();
-                                    contador++;
-                                }else if(contador > 0) {
-                                    if(matriz[fila][columna].getObj().getName() == aux){
-                                        contador++;
-                                    }else {
-                                        aux = matriz[fila][columna].getObj().getName();
-                                        contador = 1;
-                                    }
-                                }
-                            }else if(matriz[fila][columna].getObj() == null) {
-                                aux = "";
-                                contador = 0;
-                            }
-                        }else {
-                            return true;
-                        }
-                        fila++;
-                    }
-                    if(contador == mode) {
-                        return true;
-                    }else{
-                        columna++;
-                        fila = 0;
-                        contador = 0;
-                        axu = "";
-                    }
-                }
-                return false;
-            }
-
-            function busquedaPorDiagonalIzquierda() {
-                let contador = 0;
-                let aux = "";
-                let busqueda = false;
-
-                for (let i = 0; i < matriz.length; i++) {
-                    for (let j = 0; j < matriz[i].length; j++) {
-                        if(matriz[i][j].getObj() != null) {
-                            contador = 1;
-                            aux = matriz[i][j].getObj().getName();
-                            busqueda = true;
-                            let x = j;
-                            let y = i;
-                            while(busqueda === true) {
-                                if(contador < mode) {
-                                    x++;
-                                    y++;
-                                    if(x < columnas && y < filas) {
-                                        if(matriz[y][x].getObj() != null) {
-                                            if(matriz[y][x].getObj().getName() == aux) {
-                                                contador++;
-                                            }else {
-                                                busqueda = false;
-                                            }
-                                        }else if(matriz[y][x].getObj() == null) {
-                                            busqueda = false;
-                                        }
-                                    }else{
-                                        return false;
-                                    }
-                                }else if(contador == mode) {
-                                    busqueda = false;
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                    if(contador == mode) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-
-            function busquedaPorDiagonalDerecha() {
-                let contador = 0;
-                let aux = "";
-                let busqueda = false;
-
-                for (let i = 0; i < matriz.length; i++) {
-                    for (let j = columnas-1; j >= 0; j--) {
-                        if(matriz[i][j].getObj() != null) {
-                            contador = 1;
-                            aux = matriz[i][j].getObj().getName();
-                            busqueda = true;
-                            let x = j;
-                            let y = i;
-                            while(busqueda === true) {
-                                if(contador < mode) {
-                                    x--;
-                                    y++;
-                                    if(x >= 0 && y < filas) {
-                                        if(matriz[y][x].getObj() != null) {
-                                            if(matriz[y][x].getObj().getName() == aux) {
-                                                contador++;
-                                            }else {
-                                                busqueda = false;
-                                            }
-                                        }else if(matriz[y][x].getObj() == null) {
-                                            busqueda = false;
-                                        }
-                                    }else{
-                                        return false;
-                                    }
-                                }else if(contador == mode) {
-                                    busqueda = false;
-                                    return true;
-                                }
-                            }
-                        }
-                    }
-                    if(contador == mode) {
-                        return true;
-                    }
-                }
-                return false;
+                timePlayer.setCronometro();
             }
         }
     }
