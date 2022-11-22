@@ -25,7 +25,7 @@ let buttonsGame = document.getElementById("buttonsGame");
 let buttonopcionA = document.getElementById("buttonOpcionA");
 let buttonopcionB = document.getElementById("buttonOpcionB");
 
-    //Dependiendo al boton que apretemos eligiremos el modo a jugar, y este se mandara por parametro al juego. Ya que dependiendo de esto, se vera el tamaño del tablero, la cantidad de casilleros y el tamaño de la linea a completar.
+//Dependiendo al boton que apretemos eligiremos el modo a jugar, y este se mandara por parametro al juego. Ya que dependiendo de esto, se vera el tamaño del tablero, la cantidad de casilleros y el tamaño de la linea a completar.
 buttonMode5.addEventListener("click", () => {
     mode = 5;
     elegirEscudos(mode);
@@ -129,8 +129,8 @@ function playActive() {
     }
 }
 
-    //En esta funcion se iniciara el juego. El juego esta conformado por 4 objetos principales que son: Las fichas, Los casilleros(Conforman el tablero),El tablero, y El tiempo a jugar.
-    //En esta funcion uniremos con logica los 4 objetos recien mencionados. 
+//En esta funcion se iniciara el juego. El juego esta conformado por 4 objetos principales que son: Las fichas, Los casilleros(Conforman el tablero),El tablero, y El tiempo a jugar.
+//En esta funcion uniremos con logica los 4 objetos recien mencionados. 
 function play(fichaRiver, fichaBoca, mode) {
 
     canvas.classList.toggle("active");
@@ -285,7 +285,7 @@ function play(fichaRiver, fichaBoca, mode) {
 
     }
 
-            //Creamos la ficha de river.
+    //Creamos la ficha de river.
     function infoFichaRiver() {
         local = false;
         let color = 'red';
