@@ -246,6 +246,8 @@ function playActive() {
                         time.innerHTML = `FIN DE LA PARTIDA`;
                         clearInterval(turnInterval);
                         actualizar();
+                        document.getElementById("winnerTitle").innerHTML = `Se termino el tiempo de partida`;
+                        winner.classList.toggle("active");
                     }
                 }, 1000);
 
