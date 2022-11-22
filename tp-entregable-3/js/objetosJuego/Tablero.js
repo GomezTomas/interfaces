@@ -50,7 +50,6 @@ class Tablero {
 
     //Metodo para saber si se solto alguna ficha sobre el tablero y donde se solto.
     mouseUpTable(lastClickedFigure, i, j) {
-        console.log(lastClickedFigure, i, j);
         if(((lastClickedFigure.getPosX() > this.matriz[i][j].getInicioX()) && (lastClickedFigure.getPosX() < this.matriz[i][j].getFinX())) 
             && ((lastClickedFigure.getPosY() > this.matriz[i][j].getInicioY()) && (lastClickedFigure.getPosY() < this.matriz[i][j].getFinY()))) {
                 return true;
