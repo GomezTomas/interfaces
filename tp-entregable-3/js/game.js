@@ -111,7 +111,7 @@ function playActive() {
 
             buttonopcionB.addEventListener("click", () => {
                 let imgFichaRiver = "assets/img/fichaRiver2.png";
-                let imgFichaBoca = "assets/img/fichaBoca.png";
+                let imgFichaBoca = "assets/img/fichaBoca2.png";
 
                 play(imgFichaRiver, imgFichaBoca, mode);
             });
