@@ -11,6 +11,7 @@ body {
   width: 100%;
   margin: 0px;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .main-container{
@@ -481,8 +482,6 @@ footer ul li{
   text-align: center;
 }
 
-/* hero */
-
 .bodyHero{
   background-color: #1e1e1e;
 }
@@ -561,80 +560,175 @@ footer ul li{
   transform: translateY(-21px) rotate(90deg);
 }
 
-.menuHamburguer{
-  position: fixed;
-  top: 0px;
-  right: -1000px;
-  width: 45rem;
+.menuHamburguer {
+  background-color: #00AAE4;
+  width: 720px;
   height: 857px;
-  z-index: 2;
-  background-color: #0CB594;
-  opacity: 0;
-  transition: all 0.75s ease;
-}
-
-.menuHamburguer.open{
-  opacity: 1;
   position: fixed;
-  top: 0px;
-  right: 0px;
-  z-index: 2;
-  width: 45rem;
-  height: 857px;
+  top: 0;
+  right: -2000px;
+  z-index: -2;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #0CB594;
+  transition: all 0.50s ease;
 }
 
-.userSection{
-  opacity: 1;
-  width: 45rem;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+.menuHamburguer.open {
+  right: 0;
+  z-index: 2;
+}
+
+.userSection {
+  position: relative;
+  width: 720px;
   height: 194px;
-  margin-bottom: 28px;
   font-family: 'IBM Plex Sans Thai Looped';
   font-style: normal;
-  font-weight: 4200px;
+  font-weight: 400;
   font-size: 29.7931px;
   line-height: 49px;
   color: #FFFFFF;
 }
 
-.userSection > img {
-  margin-left: 21px;
+@keyframes moveUserSection {
+  0% {right: -720px;}
+  100% {right: 0px;}
 }
 
-.buttonsMenuSection{
-  opacity: 1;
-  width: 45rem;
-  height: 411px;
+.userSectionContainer {
+  position: absolute;
+  top: 10px;
+  width: 720px;
+  height: 100%;
+  display: flex;
+  align-items: center; 
+}
+
+.userSectionContainer.active {
+  animation: moveUserSection 0.50s ease-in 1;
+}
+
+.userSectionContainer > div > p {
+  margin-left: 40px;
+}
+
+.buttonsMenuSection {
+  position: relative;
+  top: 27px;
+  width: 720px;
+  height: 452px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
 }
 
-.buttonsMenuSection > button{
-  background-color: #402CBF;
-  border-color: #402CBF;
-  color: #fff;
-  background-image: linear-gradient(45deg, #7421BB 50%, transparent 50%);
-  background-position: 100%;
-  background-size: 400%;
-  transition: background 450ms ease-in-out;
-  width: 200px;
-  height: 60px;
-  border-radius: 75px;
-  margin-bottom: 34px;
-  position: relative;
+@keyframes menuMoveButtons {
+  0% {right: -250px;}
+  100% {right: 260px;}
 }
 
-.buttonsMenuSection > button:hover{
+.button-1, .button-2, .button-3, .button-4, .button-5 {
+  position: absolute;
+}
+
+.button-1 {
+  top: 0;
+}
+
+.button-2 {
+  top: 84px;
+}
+
+.button-3 {
+  top: 168px;
+}
+
+.button-4 {
+  top: 252px;
+}
+
+.button-5 {
+  top: 336px;
+}
+
+.button-1.active {
+  animation: menuMoveButtons 0.50s ease-in 1;
+}
+.button-2.active {
+  animation: menuMoveButtons 0.60s ease-in 1;
+}
+.button-3.active {
+  animation: menuMoveButtons 0.70s ease-in 1;
+}
+.button-4.active {
+  animation: menuMoveButtons 0.80s ease-in 1;
+}
+.button-5.active {
+  animation: menuMoveButtons 0.90s ease-in 1;
+}
+
+.menuHamburguer > .hrMenu {
+  height: 0px;
+  width: 720px;
+  border: 1px solid #000;
+}
+
+.button-1, .button-2, .button-3, .button-4, .button-5 {
+  height: 60px;
+  width: 200px;
+  border-radius: 75px;
+  border-color: #402CBF;
+  color: #fff;
+  background-color: #00AAE4;
+  background-image: linear-gradient(45deg, #402CBF 50%, transparent 50%);
+  background-position: 100%;
+  background-size: 400%;
+  transition: background 300ms ease-in-out;
+}
+.button-1:hover, .button-2:hover, .button-3:hover, .button-4:hover, .button-5:hover {
   background-position: 0;
+}
+
+.shareAccount {
+  position: relative;
+  width: 720px;
+  height: 211px;
+  font-family: 'IBM Plex Sans Thai Looped';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 29.7931px;
+  line-height: 49px;
+  color: #FFFFFF;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes moveShareAccout {
+  0% {right: -720px;}
+  100% {right: 0;}
+}
+
+.shareAccountContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.shareAccountContainer.active {
+  animation: moveShareAccout 0.90s ease-in 1;
+}
+
+.shareAccountContainer > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .miCarrito::before{
@@ -651,52 +745,6 @@ footer ul li{
   justify-content: center;
   clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
 }
-
-.menuHamburguer > hr{
-  width: 100%;
-  border-right-width: 0px;
-  border-left-width: 0px;
-  margin-bottom: 13px;
-  border-top: 1px solid #1e1e1e;
-  border-bottom: 1px solid #1e1e1e;
-}
-
-.shareAccount{
-  opacity: 1;
-  margin-top: 0px;
-  width: 720px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.shareAccount > p{
-  margin-top: 0px;
-  margin-bottom: 44px;
-  font-family: 'IBM Plex Sans Thai Looped';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 53px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-
-  color: #FFFFFF;
-
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.shareAccount > div{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-
-
 
 .titleHero-container{
   display: flex;
