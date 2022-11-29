@@ -4,7 +4,6 @@ const myGreeting = () => {
   content.classList.remove('main-container');
   loader.classList.add('main-container');
   loader.classList.remove('loader');
-  console.log("loadded");
 }
 
 console.log('Loading');
@@ -23,7 +22,6 @@ const showPercentage = () => {
         } else {
             width++;
             percentageDisplay.innerHTML = `${width}%`
-            console.log(width)
         }
     }, 35);
   }
