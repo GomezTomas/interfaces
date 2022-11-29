@@ -9,46 +9,52 @@
   <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body class="bodyHero">
-  <header class="headerHero">
-    <a href="index.html"><img src="assets/logos/icon.svg" alt="Logo pagina web"></a>
-    <div class="search-bar">
-      <p>Buscar</p>
-    </div>
-    <div class="containerHamburguer">
-      <div class="hamburguer">
-        <span></span>
-        <span></span>
-        <span></span>
+  <header class="header">
+    <div class="containerHeader">
+      <div class="header-1">
+        <a href="index.html"><img class="logo" src="assets/logos/icon.svg" alt="Juegos Free!"></a>
+        <input type="text" class="search" placeholder="Buscar">
+        <div class="containerHamburguer">
+          <div class="hamburguer">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </div>
+        <nav>
+          <div class="menuHamburguer">
+            <div class="userSection">
+              <div class="userSectionContainer">
+                <img src="assets/img/Avatar.png" alt="Avatar">
+              <div>
+                <p>User name</p>
+                <p>Nivel: 0</p>
+              </div>
+            </div>
+          </div>
+          <div class="buttonsMenuSection">
+            <button class="button-1">Mi perfil</button>
+            <button class="button-2">Mis juegos</button>
+            <button class="miCarrito button-3">Mi carrito</button>
+            <button class="button-4">Contactanos</button>
+            <button class="button-5">Cerrar sesion</button>
+          </div>
+          <hr class="hrMenu">
+          <div class="shareAccount">
+            <div class="shareAccountContainer">
+              <p>Comparte tu perfil con tus amigos!!</p>
+              <div>
+                <img src="assets/img/Discord logo.png" alt="Discord">
+                <img src="assets/img/Facebook logo.png" alt="Facebook">
+                <img src="assets/img/Twitter logo.png" alt="Twitter">
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
     </div>
   </header>
-  <nav>
-    <div class="menuHamburguer">
-      <div class="userSection">
-        <img src="assets/img/Avatar.png" alt="Avatar">
-        <div>
-          <p>User name</p>
-          <p>Nivel: 0</p>
-        </div>
-      </div>
-      <div class="buttonsMenuSection">
-        <button>Mi perfil</button>
-        <button>Mis juegos</button>
-        <button class="miCarrito">Mi carrito</button>
-        <button>Contactanos</button>
-        <button>Cerrar sesion</button>
-      </div>
-      <hr class="hrMenu">
-      <div class="shareAccount">
-        <p>Comparte tu perfil con tus amigos!!</p>
-        <div>
-          <img src="assets/img/Discord logo.png" alt="Discord">
-          <img src="assets/img/Facebook logo.png" alt="Facebook">
-          <img src="assets/img/Twitter logo.png" alt="Twitter">
-        </div>
-      </div>
-  </div>
-  </nav>
   <main>
     <div class="titleHero-container">
       <h1 class="titleHero">Formula<span class="changeColorTitle">1</span>
@@ -155,5 +161,6 @@
     </footer>
     <script src="js/hero.js"></script>
     <script src="js/menu.js"></script>
+    <script src="js/funcionSticky.js"></script>
 </body>
 </html>
