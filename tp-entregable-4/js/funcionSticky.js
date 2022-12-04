@@ -1,7 +1,30 @@
 let scrollTop = true;
 
+let sliderAnimation = document.querySelector(".slider");
+let animationActive = false;
+let inicio = false;
+
 window.onscroll = function () {
     stickyFunction();
+    let y = window.scrollY;
+    teamAnimation(y);
+}
+
+sliderAnimation.classList.toggle("positionSlider");
+
+function teamAnimation(y) {
+    if(y < 800 && animationActive === true) {
+        animationActive = false;
+        if(inicio === true) {
+            sliderAnimation.classList.toggle("carruselMove");
+            sliderAnimation.classList.toggle("positionSlider");
+        }
+    }else if(y > 800 && animationActive === false) {
+        animationActive = true;
+        sliderAnimation.classList.toggle("positionSlider");
+        sliderAnimation.classList.toggle("carruselMove");
+        inicio = true;
+    }
 }
 
 let header = document.querySelector(".containerHeader");

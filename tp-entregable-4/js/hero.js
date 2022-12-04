@@ -1,4 +1,3 @@
-
 /*CARRUSEL HERO */
 let slider = document.querySelector(".slider");
 let innerSlider = document.querySelector(".slider-inner");
