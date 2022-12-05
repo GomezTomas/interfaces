@@ -1,18 +1,27 @@
 let scrollTop = true;
-
-let sliderAnimation = document.querySelector(".slider");
-let animationActive = false;
-let inicio = false;
+let URLactual = window.location;
+let sliderAnimation
+let animationActive
+let inicio
 
 window.onscroll = function () {
     stickyFunction();
-    let y = window.scrollY;
-    console.log(y);
-    teamAnimation(y);
-    cardMoveFeatures(y);
+
+    if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){
+        let y = window.scrollY;
+        teamAnimation(y);
+        cardMoveFeatures(y);
+    }
 }
 
+if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){
+
+sliderAnimation = document.querySelector(".slider");
+animationActive = false;
+inicio = false;
+
 sliderAnimation.classList.toggle("positionSlider");
+}
 
 function teamAnimation(y) {
     if(y < 1000 && animationActive === true) {
