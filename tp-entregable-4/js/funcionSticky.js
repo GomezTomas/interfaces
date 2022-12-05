@@ -5,6 +5,8 @@ let animationActive;
 let inicio;
 let img;
 let parrafoHero;
+let imgAyrton;
+let parrafoAyrton;
 
 window.onscroll = function () {
     stickyFunction();
@@ -15,6 +17,7 @@ window.onscroll = function () {
         teamAnimation(y);
         cardMoveFeatures(y);
         historyHero(y);
+        descripcionHero(y);
     }
 }
 
@@ -25,7 +28,8 @@ animationActive = false;
 inicio = false;
 img = document.querySelector(".inGameImg");
 parrafoHero = document.querySelector(".parrafoHero");
-
+imgAyrton = document.querySelector(".gameAyrton");
+parrafoAyrton = document.querySelector(".descripcionHero");
 sliderAnimation.classList.toggle("positionSlider");
 }
 
@@ -155,16 +159,32 @@ function cardMoveFeatures(y) {
 
 //imgHistory
 
-let activeteHistory = false;
+let activateHistory = false;
 
 function historyHero(y) {
-    if(y > 500 && activeteHistory === false) {
+    if(y > 500 && activateHistory === false) {
         img.classList.toggle("inGameImgMove");
         parrafoHero.classList.toggle("parrafoHeroOpacity");
-        activeteHistory = true;
-    }else if(y < 500 && activeteHistory === true) {
+        activateHistory = true;
+    }else if(y < 500 && activateHistory === true) {
         img.classList.toggle("inGameImgMove");
         parrafoHero.classList.toggle("parrafoHeroOpacity");
-        activeteHistory = false;
+        activateHistory = false;
+    }
+}
+
+//imgDescripcion
+
+let activateDescripcion = false;
+
+function descripcionHero(y) {
+    if(y > 2300 && activateDescripcion === false) {
+        imgAyrton.classList.toggle("gameAyrtonMove");
+        parrafoAyrton.classList.toggle("parrafoAyrtonOpacity");
+        activateDescripcion = true;
+    }else if(y < 2300 && activateDescripcion === true) {
+        imgAyrton.classList.toggle("gameAyrtonMove");
+        parrafoAyrton.classList.toggle("parrafoAyrtonOpacity");
+        activateDescripcion = false;
     }
 }

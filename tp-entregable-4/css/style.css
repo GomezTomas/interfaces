@@ -901,24 +901,47 @@ footer ul li{
   padding-bottom: 15px;
 }
 
-.sectionHeroDescripcion{
-  display: flex;
-  align-items: center;
-  text-align: center;  
+.sectionHeroDescripcion{  
   color: #F7F7F7;
   margin-top: 30px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
 }
 
 .descripcionHero{
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: 3rem;
   line-height: 77px;
   color: #F7F7F7;
   margin-left: 50px;
   margin-right: 50px;
+  text-align: center;
+  width: 50%;
+  opacity: 0;
+  transition: opacity 0.50s ease-in-out;
+}
+
+.gameAyrton {
+  border-radius: 25px;
+  width: 30%;
+  border: rgb(180, 180, 180) solid 2px;
+  box-shadow: -5px 10px rgba(180, 180, 180, 0.5);
+  opacity: 0;
+  transform: translateX(-150%);
+  transition: all 0.50s ease-in-out;
+}
+
+.gameAyrtonMove {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.parrafoAyrtonOpacity {
+  opacity: 1;
 }
 
 .title-features{
