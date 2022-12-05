@@ -11,7 +11,7 @@ let parrafoAyrton;
 window.onscroll = function () {
     stickyFunction();
 
-    if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){    
+    if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html" || URLactual == "https://gomeztomas.github.io/interfaces/tp-entregable-4/hero.html"){    
         let y = window.scrollY;
         console.log(y)
         teamAnimation(y);
@@ -21,7 +21,7 @@ window.onscroll = function () {
     }
 }
 
-if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){
+if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html" || URLactual == "https://gomeztomas.github.io/interfaces/tp-entregable-4/hero.html"){
 
 sliderAnimation = document.querySelector(".slider");
 animationActive = false;
