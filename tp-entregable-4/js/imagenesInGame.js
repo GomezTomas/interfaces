@@ -14,79 +14,94 @@ img1.src = imagenes[0];
 let img2 = document.querySelector(".imgGame-2");
 img2.src = imagenes[1];
 
-let aux1 = imagenes[0];
-let aux2 = imagenes[1];
+let i = 0;
+let j = 1;
+
+let reseteoRight = false;
+let reseteoLeft = false;
 
 function switchImageRight() {
-    if(aux1 === imagenes[0] && aux2 === imagenes[1]){
+    if(j < 4 && reseteoRight === false){
+        i++;
         img1.classList.toggle("opacityImgGameRight");
-        img1.src = imagenes[1];
-        aux1 = imagenes[1];
+        img1.src = imagenes[i];
+        j++;
         img2.classList.toggle("opacityImgGameRight");
-        img2.src = imagenes[2];
-        aux2 = imagenes[2];
+        img2.src = imagenes[j];
         setTimeout(() => {
             img1.classList.toggle("opacityImgGameRight");
             img2.classList.toggle("opacityImgGameRight");
         },500);
-    }else if(aux1 === imagenes[1] && aux2 === imagenes[2]){
+        if(j === 4) {
+            reseteoRight = true;
+        }
+    }else if(j === 5){
+        i = 0;
+        j = 1
         img1.classList.toggle("opacityImgGameRight");
-        img1.src = imagenes[2];
-        aux1 = imagenes[2]
+        img1.src = imagenes[i];
         img2.classList.toggle("opacityImgGameRight");
-        img2.src = imagenes[3];
-        aux2 = imagenes[3];
+        img2.src = imagenes[j];
         setTimeout(() => {
             img1.classList.toggle("opacityImgGameRight");
             img2.classList.toggle("opacityImgGameRight");
         },500);
-    }else if(aux1 === imagenes[2] && aux2 === imagenes[3]){
+
+    }else {
+        i = 4;
+        j = 0;
         img1.classList.toggle("opacityImgGameRight");
-        img1.src = imagenes[3];
-        aux1 = imagenes[3];
+        img1.src = imagenes[i];
         img2.classList.toggle("opacityImgGameRight");
-        img2.src = imagenes[4];
-        aux2 = imagenes[4];
+        img2.src = imagenes[j];
         setTimeout(() => {
             img1.classList.toggle("opacityImgGameRight");
             img2.classList.toggle("opacityImgGameRight");
         },500);
+        reseteoRight = false;
+        i = -1;
     }
 }
 
 function switchImageLeft() {
-    if(aux1 === imagenes[3] && aux2 === imagenes[4]){
-        img1.classList.toggle("opacityImgGameLeft");
-        img1.src = imagenes[2];
-        aux1 = imagenes[2];
+    if(i > 0 && reseteoLeft === false){
+        console.log(i)
+        j--;
         img2.classList.toggle("opacityImgGameLeft");
-        img2.src = imagenes[3];
-        aux2 = imagenes[3];
+        img2.src = imagenes[j];
+        i--;
+        img1.classList.toggle("opacityImgGameLeft");
+        img1.src = imagenes[i];
         setTimeout(() => {
             img1.classList.toggle("opacityImgGameLeft");
             img2.classList.toggle("opacityImgGameLeft");
         },500);
-    }else if(aux1 === imagenes[2] && aux2 === imagenes[3]){
-        img1.classList.toggle("opacityImgGameLeft");
-        img1.src = imagenes[1];
-        aux1 = imagenes[1];
-        img2.classList.toggle("opacityImgGameLeft");
-        img2.src = imagenes[2];
-        aux2 = imagenes[2];
+        if(i === 0) {
+            reseteoLeft = true;
+        }
+    }else if(i === -1){
+        i = 3;
+        j = 4;
+        img1.classList.toggle("opacityImgGameRight");
+        img1.src = imagenes[i];
+        img2.classList.toggle("opacityImgGameRight");
+        img2.src = imagenes[j];
         setTimeout(() => {
-            img1.classList.toggle("opacityImgGameLeft");
-            img2.classList.toggle("opacityImgGameLeft");
+            img1.classList.toggle("opacityImgGameRight");
+            img2.classList.toggle("opacityImgGameRight");
         },500);
-    }else if(aux1 === imagenes[1] && aux2 === imagenes[2]){
-        img1.classList.toggle("opacityImgGameLeft");
-        img1.src = imagenes[0];
-        aux1 = imagenes[0];
-        img2.classList.toggle("opacityImgGameLeft");
-        img2.src = imagenes[1];
-        aux2 = imagenes[1];
+    }else {
+        i = 4;
+        j = 0;
+        img2.classList.toggle("opacityImgGameRight");
+        img2.src = imagenes[j];
+        img1.classList.toggle("opacityImgGameRight");
+        img1.src = imagenes[i];
         setTimeout(() => {
-            img1.classList.toggle("opacityImgGameLeft");
-            img2.classList.toggle("opacityImgGameLeft");
+            img1.classList.toggle("opacityImgGameRight");
+            img2.classList.toggle("opacityImgGameRight");
         },500);
+        reseteoLeft = false;
+        j = 5;
     }
 }
