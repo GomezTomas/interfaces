@@ -1,16 +1,20 @@
 let scrollTop = true;
 let URLactual = window.location;
-let sliderAnimation
-let animationActive
-let inicio
+let sliderAnimation;
+let animationActive;
+let inicio;
+let img;
+let parrafoHero;
 
 window.onscroll = function () {
     stickyFunction();
 
-    if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){
+    if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){    
         let y = window.scrollY;
+        console.log(y)
         teamAnimation(y);
         cardMoveFeatures(y);
+        historyHero(y);
     }
 }
 
@@ -19,18 +23,20 @@ if(URLactual == "http://127.0.0.1:5500/tp-entregable-4/hero.html"){
 sliderAnimation = document.querySelector(".slider");
 animationActive = false;
 inicio = false;
+img = document.querySelector(".inGameImg");
+parrafoHero = document.querySelector(".parrafoHero");
 
 sliderAnimation.classList.toggle("positionSlider");
 }
 
 function teamAnimation(y) {
-    if(y < 1000 && animationActive === true) {
+    if(y < 800 && animationActive === true) {
         animationActive = false;
         if(inicio === true) {
             sliderAnimation.classList.toggle("carruselMove");
             sliderAnimation.classList.toggle("positionSlider");
         }
-    }else if(y > 1000 && animationActive === false) {
+    }else if(y > 1500 && animationActive === false) {
         animationActive = true;
         sliderAnimation.classList.toggle("positionSlider");
         sliderAnimation.classList.toggle("carruselMove");
@@ -144,5 +150,21 @@ function cardMoveFeatures(y) {
     }else if(y < 4200 && activeCard4Move2 === true){
         document.querySelector(".card-4").classList.toggle("cardMove2");
         activeCard4Move2 = false;
+    }
+}
+
+//imgHistory
+
+let activeteHistory = false;
+
+function historyHero(y) {
+    if(y > 500 && activeteHistory === false) {
+        img.classList.toggle("inGameImgMove");
+        parrafoHero.classList.toggle("parrafoHeroOpacity");
+        activeteHistory = true;
+    }else if(y < 500 && activeteHistory === true) {
+        img.classList.toggle("inGameImgMove");
+        parrafoHero.classList.toggle("parrafoHeroOpacity");
+        activeteHistory = false;
     }
 }

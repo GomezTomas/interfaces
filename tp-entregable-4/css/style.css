@@ -813,16 +813,45 @@ footer ul li{
 .sectionHero{
   background-color: #CC0000;
   width: 100%;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+
+.parrafoHero {
+  text-align: center;
+  word-wrap: break-word;
   color: #F7F7F7;
   font-family: 'Lato';
   font-style: normal;
   font-weight: 800;
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 77px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  word-wrap: break-word;
+  width: 50%;
+  opacity: 0;
+  transition: opacity 0.55s ease-in-out;
+}
+
+.parrafoHeroOpacity {
+  opacity: 1;
+}
+
+.inGameImg {
+  border-radius: 25px;
+  width: 30%;
+  border: rgb(180, 180, 180) solid 2px;
+  box-shadow: -5px 10px rgba(180, 180, 180, 0.5);
+  transition: all 0.50s ease-in-out;
+}
+
+.inGameImg {
+  opacity: 0;
+  transform: translateX(-150%);
+}
+
+.inGameImgMove {
+  opacity: 1;
+  transform: translateX(0%);
 }
 
 .carrusel{
